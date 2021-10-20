@@ -26,7 +26,7 @@ public class TowerPurchase : MonoBehaviour
     {
         if (m_collider2D.OverlapPoint(m_playerTouchInfo.m_touchStartPos))
         {
-            if (m_Level1UICanvas.GetComponent<Level1UI>().totalCash >= GetComponent<TowerAttributes>().towerCost)
+            if (m_Level1UICanvas.GetComponent<Level1UI>().totalCash >= GetComponent<BannerAttributes>().towerCost)
             {
                 Debug.Log("Green Ship selected");
                 m_redXButton.SetActive(true);

@@ -4,24 +4,34 @@ using UnityEngine;
 
 public class TowerAttributes : MonoBehaviour
 {
-    [SerializeField]
-    public int towerCost;
+    private Vector2 m_vDirection;
 
     [SerializeField]
-    public GameObject towerPrefab;
+    public float m_fRange;
 
     [SerializeField]
-    public GameObject m_highlightedBox;
+    public float m_fHealth;
+
+    [SerializeField]
+    public float m_fTowerCost;
+    
+    public bool m_bIsActive;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        m_highlightedBox.SetActive(false);
+        m_bIsActive = false;
+        m_vDirection = new Vector2(1.0f, 0.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (m_bIsActive)
+        {
+            //Do Stuff
+        }
     }
 }

@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 17890161}
   - component: {fileID: 17890160}
   m_Layer: 0
-  m_Name: Drill (2)
+  m_Name: Drill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 22187938}
   - component: {fileID: 22187939}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_10 (2)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 55465541}
   - component: {fileID: 55465542}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_2 (2)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 81107530}
   - component: {fileID: 81107531}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_13 (3)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -714,8 +714,9 @@ GameObject:
   m_Component:
   - component: {fileID: 103541665}
   - component: {fileID: 103541666}
+  - component: {fileID: 103541667}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_5
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -787,6 +788,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &103541667
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103541664}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.322, y: 1.2566667}
+    newSize: {x: 1.322, y: 1.2566667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.51, y: 0.37}
+  m_EdgeRadius: 0
 --- !u!1 &136171300
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,8 +824,9 @@ GameObject:
   m_Component:
   - component: {fileID: 136171301}
   - component: {fileID: 136171302}
+  - component: {fileID: 136171303}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_9 (1)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -870,6 +898,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &136171303
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136171300}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.322, y: 1.2566667}
+    newSize: {x: 1.322, y: 1.2566667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.68, y: 0.53}
+  m_EdgeRadius: 0
 --- !u!1 &153202042
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,8 +1017,9 @@ GameObject:
   m_Component:
   - component: {fileID: 212338887}
   - component: {fileID: 212338888}
+  - component: {fileID: 212338889}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_14
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1036,6 +1091,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &212338889
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212338886}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.322, y: 1.2566667}
+    newSize: {x: 1.322, y: 1.2566667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.63}
+  m_EdgeRadius: 0
 --- !u!1 &215916864
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,7 +1200,6 @@ MonoBehaviour:
   m_banner: {fileID: 1477889434}
   m_redXButton: {fileID: 656812837}
   m_Level1UICanvas: {fileID: 1828320163}
-  m_placedTowerParent: {fileID: 215916864}
 --- !u!1 &242456264
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,7 +1338,7 @@ GameObject:
   - component: {fileID: 254243213}
   - component: {fileID: 254243214}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_12 (1)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1341,7 +1421,7 @@ GameObject:
   - component: {fileID: 271970158}
   - component: {fileID: 271970159}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_12 (3)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1424,7 +1504,7 @@ GameObject:
   - component: {fileID: 289036627}
   - component: {fileID: 289036628}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_7
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2016,8 +2096,9 @@ GameObject:
   m_Component:
   - component: {fileID: 443178581}
   - component: {fileID: 443178582}
+  - component: {fileID: 443178583}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_12
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2032,7 +2113,7 @@ Transform:
   m_GameObject: {fileID: 443178580}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.02, y: -0.64, z: 1.4635037}
-  m_LocalScale: {x: 2.2131, y: 2.2131, z: 2.2131}
+  m_LocalScale: {x: 2.190969, y: 2.190969, z: 2.190969}
   m_Children: []
   m_Father: {fileID: 788514823}
   m_RootOrder: 19
@@ -2089,6 +2170,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &443178583
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443178580}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.18}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.322, y: 1.2566667}
+    newSize: {x: 1.322, y: 1.2566667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.48, y: 0.44}
+  m_EdgeRadius: 0
 --- !u!1 &463294993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2100,7 +2207,7 @@ GameObject:
   - component: {fileID: 463294994}
   - component: {fileID: 463294995}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_2 (4)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2482,7 +2589,7 @@ GameObject:
   - component: {fileID: 536369889}
   - component: {fileID: 536369890}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_13 (4)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2698,7 +2805,7 @@ GameObject:
   - component: {fileID: 582085644}
   - component: {fileID: 582085645}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_14 (1)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2780,8 +2887,9 @@ GameObject:
   m_Component:
   - component: {fileID: 601651208}
   - component: {fileID: 601651209}
+  - component: {fileID: 601651210}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_2 (3)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2853,6 +2961,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &601651210
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601651207}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.322, y: 1.2566667}
+    newSize: {x: 1.322, y: 1.2566667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.67, y: 0.56}
+  m_EdgeRadius: 0
 --- !u!1 &621049680
 GameObject:
   m_ObjectHideFlags: 0
@@ -2863,8 +2997,9 @@ GameObject:
   m_Component:
   - component: {fileID: 621049681}
   - component: {fileID: 621049682}
+  - component: {fileID: 621049683}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_8
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2936,6 +3071,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &621049683
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621049680}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.322, y: 1.2566667}
+    newSize: {x: 1.322, y: 1.2566667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.62, y: 0.36}
+  m_EdgeRadius: 0
 --- !u!1 &632290832
 GameObject:
   m_ObjectHideFlags: 0
@@ -2946,8 +3107,9 @@ GameObject:
   m_Component:
   - component: {fileID: 632290833}
   - component: {fileID: 632290834}
+  - component: {fileID: 632290835}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_9
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3019,6 +3181,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &632290835
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632290832}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.322, y: 1.2566667}
+    newSize: {x: 1.322, y: 1.2566667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.55, y: 0.5}
+  m_EdgeRadius: 0
 --- !u!1 &641076665
 GameObject:
   m_ObjectHideFlags: 0
@@ -3029,8 +3217,9 @@ GameObject:
   m_Component:
   - component: {fileID: 641076666}
   - component: {fileID: 641076667}
+  - component: {fileID: 641076668}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_1
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3102,6 +3291,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &641076668
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641076665}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.322, y: 1.2566667}
+    newSize: {x: 1.322, y: 1.2566667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.52, y: 0.54}
+  m_EdgeRadius: 0
 --- !u!1001 &645668512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3314,7 +3529,7 @@ GameObject:
   - component: {fileID: 660049909}
   - component: {fileID: 660049910}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_13 (2)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3396,8 +3611,9 @@ GameObject:
   m_Component:
   - component: {fileID: 707357203}
   - component: {fileID: 707357204}
+  - component: {fileID: 707357205}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_4 (1)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3469,6 +3685,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &707357205
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707357202}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.322, y: 1.2566667}
+    newSize: {x: 1.322, y: 1.2566667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.67, y: 0.51}
+  m_EdgeRadius: 0
 --- !u!1 &713651048
 GameObject:
   m_ObjectHideFlags: 0
@@ -3480,7 +3722,7 @@ GameObject:
   - component: {fileID: 713651049}
   - component: {fileID: 713651050}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_11 (1)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3638,8 +3880,9 @@ GameObject:
   m_Component:
   - component: {fileID: 757799389}
   - component: {fileID: 757799390}
+  - component: {fileID: 757799391}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_10 (1)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3711,6 +3954,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &757799391
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757799388}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.322, y: 1.2566667}
+    newSize: {x: 1.322, y: 1.2566667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.69, y: 0.66}
+  m_EdgeRadius: 0
 --- !u!1 &788514822
 GameObject:
   m_ObjectHideFlags: 0
@@ -3721,7 +3990,7 @@ GameObject:
   m_Component:
   - component: {fileID: 788514823}
   m_Layer: 0
-  m_Name: Asteroids
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3791,8 +4060,9 @@ GameObject:
   m_Component:
   - component: {fileID: 868238016}
   - component: {fileID: 868238017}
+  - component: {fileID: 868238018}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_11
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3864,6 +4134,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &868238018
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868238015}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.322, y: 1.2566667}
+    newSize: {x: 1.322, y: 1.2566667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.62}
+  m_EdgeRadius: 0
 --- !u!1 &874121002
 GameObject:
   m_ObjectHideFlags: 0
@@ -3874,8 +4170,9 @@ GameObject:
   m_Component:
   - component: {fileID: 874121003}
   - component: {fileID: 874121004}
+  - component: {fileID: 874121005}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_14 (3)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3947,6 +4244,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &874121005
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874121002}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.322, y: 1.2566667}
+    newSize: {x: 1.322, y: 1.2566667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.55, y: 0.44}
+  m_EdgeRadius: 0
 --- !u!1 &887749435
 GameObject:
   m_ObjectHideFlags: 0
@@ -3957,8 +4280,9 @@ GameObject:
   m_Component:
   - component: {fileID: 887749436}
   - component: {fileID: 887749437}
+  - component: {fileID: 887749438}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_9
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4030,6 +4354,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &887749438
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887749435}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.322, y: 1.2566667}
+    newSize: {x: 1.322, y: 1.2566667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.47, y: 0.59}
+  m_EdgeRadius: 0
 --- !u!1 &892113143
 GameObject:
   m_ObjectHideFlags: 0
@@ -4241,7 +4591,7 @@ GameObject:
   - component: {fileID: 1204607468}
   - component: {fileID: 1204607469}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_10 (6)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4751,8 +5101,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1332804987}
   - component: {fileID: 1332804986}
+  - component: {fileID: 1332804988}
   m_Layer: 0
-  m_Name: Earth (1)
+  m_Name: Earth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4824,6 +5175,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1332804988
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332804985}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.4, y: 3.9}
+    newSize: {x: 6.4, y: 3.9}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.85, y: 2.95}
+  m_EdgeRadius: 0
 --- !u!1 &1358827290
 GameObject:
   m_ObjectHideFlags: 0
@@ -4835,7 +5212,7 @@ GameObject:
   - component: {fileID: 1358827291}
   - component: {fileID: 1358827292}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_12 (2)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5271,7 +5648,7 @@ GameObject:
   - component: {fileID: 1427218799}
   - component: {fileID: 1427218798}
   m_Layer: 0
-  m_Name: GoldNugget (2)
+  m_Name: GoldNugget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5437,7 +5814,7 @@ GameObject:
   - component: {fileID: 1447872117}
   - component: {fileID: 1447872118}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_2 (5)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5805,7 +6182,7 @@ GameObject:
   - component: {fileID: 1523436278}
   - component: {fileID: 1523436279}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_10 (3)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6123,8 +6500,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1612009726}
   - component: {fileID: 1612009727}
+  - component: {fileID: 1612009728}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_0
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6196,6 +6574,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1612009728
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612009725}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.322, y: 1.2566667}
+    newSize: {x: 1.322, y: 1.2566667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.49, y: 0.44}
+  m_EdgeRadius: 0
 --- !u!1 &1627579594
 GameObject:
   m_ObjectHideFlags: 0
@@ -6414,7 +6818,7 @@ GameObject:
   - component: {fileID: 1638480735}
   - component: {fileID: 1638480736}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_10 (5)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6497,7 +6901,7 @@ GameObject:
   - component: {fileID: 1657102274}
   - component: {fileID: 1657102275}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_10 (4)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6579,8 +6983,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1657638150}
   - component: {fileID: 1657638151}
+  - component: {fileID: 1657638152}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_6
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6652,6 +7057,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1657638152
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657638149}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.322, y: 1.2566667}
+    newSize: {x: 1.322, y: 1.2566667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.58, y: 0.62}
+  m_EdgeRadius: 0
 --- !u!1 &1658548913
 GameObject:
   m_ObjectHideFlags: 0
@@ -7015,8 +7446,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1705545076}
   - component: {fileID: 1705545077}
+  - component: {fileID: 1705545078}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_14 (2)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7088,6 +7520,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1705545078
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705545075}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.322, y: 1.2566667}
+    newSize: {x: 1.322, y: 1.2566667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.42, y: 0.43}
+  m_EdgeRadius: 0
 --- !u!1 &1716775007
 GameObject:
   m_ObjectHideFlags: 0
@@ -7099,7 +7557,7 @@ GameObject:
   - component: {fileID: 1716775008}
   - component: {fileID: 1716775009}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_13 (1)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7182,7 +7640,7 @@ GameObject:
   - component: {fileID: 1719535083}
   - component: {fileID: 1719535084}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_13
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7657,8 +8115,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1834898501}
   - component: {fileID: 1834898502}
+  - component: {fileID: 1834898503}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_2
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7730,6 +8189,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1834898503
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834898500}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.322, y: 1.2566667}
+    newSize: {x: 1.322, y: 1.2566667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.48, y: 0.42}
+  m_EdgeRadius: 0
 --- !u!1 &1835645305
 GameObject:
   m_ObjectHideFlags: 0
@@ -7740,8 +8225,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1835645306}
   - component: {fileID: 1835645307}
+  - component: {fileID: 1835645308}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_3
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7813,6 +8299,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1835645308
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835645305}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.322, y: 1.2566667}
+    newSize: {x: 1.322, y: 1.2566667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.57, y: 0.44}
+  m_EdgeRadius: 0
 --- !u!1 &1898065607
 GameObject:
   m_ObjectHideFlags: 0
@@ -7824,7 +8336,7 @@ GameObject:
   - component: {fileID: 1898065608}
   - component: {fileID: 1898065609}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_2 (1)
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7906,8 +8418,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1918312750}
   - component: {fileID: 1918312751}
+  - component: {fileID: 1918312752}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_10
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7979,6 +8492,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1918312752
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918312749}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.322, y: 1.2566667}
+    newSize: {x: 1.322, y: 1.2566667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.38, y: 0.52}
+  m_EdgeRadius: 0
 --- !u!1 &2019341038
 GameObject:
   m_ObjectHideFlags: 0
@@ -8326,8 +8865,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2105672217}
   - component: {fileID: 2105672218}
+  - component: {fileID: 2105672219}
   m_Layer: 0
-  m_Name: AsteroidSpriteSheet_4
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8399,3 +8939,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &2105672219
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105672216}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.322, y: 1.2566667}
+    newSize: {x: 1.322, y: 1.2566667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.48, y: 0.41}
+  m_EdgeRadius: 0

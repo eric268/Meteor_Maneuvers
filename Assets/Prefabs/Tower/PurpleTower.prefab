@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 2362197858468256699}
   - component: {fileID: 8225904033813261775}
   - component: {fileID: 3638418745468267237}
+  - component: {fileID: 872751091107731714}
   m_Layer: 0
   m_Name: PurpleTower
   m_TagString: Untagged
@@ -194,3 +195,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &872751091107731714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6593068436893345406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 807bb804382593d429a3b84210991300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fRange: 0
+  m_fHealth: 0

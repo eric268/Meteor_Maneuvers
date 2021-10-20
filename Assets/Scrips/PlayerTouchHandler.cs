@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerTouchHandler : MonoBehaviour
@@ -35,8 +36,12 @@ public class PlayerTouchHandler : MonoBehaviour
 
     private int towersPlaced;
 
-    private bool m_bBannerTowerTouched = false;
     Vector3 m_vTouchHeld;
+
+    private List<GameObject> m_listOfTowersPlaced;
+
+    [SerializeField]
+    public Sprite m_radiusImage;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +51,7 @@ public class PlayerTouchHandler : MonoBehaviour
         m_towersOnBanner = m_banner.GetComponentsInChildren<Collider2D>();
         towersPlaced = 0;
         m_bTowerCanBePlaced = false;
+        m_listOfTowersPlaced = new List<GameObject>();
 
     }
 
@@ -60,12 +66,17 @@ public class PlayerTouchHandler : MonoBehaviour
             switch (touch.phase)
             {
                 case TouchPhase.Began:
-                        m_touchStartPos = touchedPosition;
-                        m_touchEndPos = Vector3.zero;
+                    m_touchStartPos = touchedPosition;
+                    m_touchEndPos = Vector3.zero;
+                    ResetTowersIfSelected();
+                    if (!CheckForTowerBannerSelected(m_touchStartPos))
+                    {
+                        CheckIfPlacedTowerSelected(m_touchStartPos);
+                    }
                     break;
 
                 case TouchPhase.Moved:
-                    if (CheckForTowerBannerSelected())
+                    if (CheckIfCanPurchaseTower(m_touchStartPos))
                     {
                         CreateTower();
                     }
@@ -109,38 +120,54 @@ public class PlayerTouchHandler : MonoBehaviour
                 m_currentSelectedGameObject.GetComponent<BannerAttributes>().m_highlightedBox.SetActive(false);
                 m_currentSelectedGameObject = null;
                 m_createdTower.GetComponent<SpriteRenderer>().color = new Color(255.0f, 0.0f,0.0f, 255.0f);
+                m_redXButton.SetActive(false);
             }
         }
     }
 
-    bool CheckForTowerBannerSelected()
+    bool CheckForTowerBannerSelected(Vector3 startTouchPos)
     {
         foreach (var tower in m_towersOnBanner)
         {
             //See if the touch position is within one of the tower banner collider
-            if (tower.GetComponent<Collider2D>().OverlapPoint(m_touchStartPos))
+            if (tower.GetComponent<Collider2D>().OverlapPoint(startTouchPos))
             {
-                if (m_Level1UICanvas.GetComponent<Level1UI>().totalCash >= tower.GetComponent<BannerAttributes>().towerCost)
-                {
-                    if (m_currentSelectedGameObject != null && m_currentSelectedGameObject.GetComponent<BannerAttributes>())
-                    {
-                        m_currentSelectedGameObject.GetComponent<BannerAttributes>().m_highlightedBox.SetActive(false);
-                    }
-
-                    Debug.Log(tower.gameObject.name);
-                    m_redXButton.SetActive(true);
-                    m_currentSelectedGameObject = tower.gameObject;
-                    tower.GetComponent<BannerAttributes>().m_highlightedBox.SetActive(true);
-                    return true;
-                }
-                else
-                {
-                    m_currentSelectedGameObject = null;
-                    tower.GetComponent<BannerAttributes>().m_highlightedBox.SetActive(false);
-                    m_Level1UICanvas.GetComponent<Level1UI>().m_bDisplayNotEnoughFundsText = true;
-                }
-
+                m_currentSelectedGameObject = tower.gameObject;
+                tower.GetComponent<BannerAttributes>().m_highlightedBox.SetActive(true);
+                return true;
             }
+        }
+        return false;
+    }
+
+    void CheckIfPlacedTowerSelected(Vector3 startTouchPos)
+    {
+        foreach(GameObject tower in m_listOfTowersPlaced)
+        {
+            if (tower.GetComponent<Collider2D>().OverlapPoint(startTouchPos))
+            {
+                m_currentSelectedGameObject = tower;
+                Debug.Log(m_currentSelectedGameObject.transform.GetChild(0).name);
+                m_currentSelectedGameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+            }
+        }
+        return;
+    }
+
+    bool CheckIfCanPurchaseTower(Vector3 startTouchPos)
+    {
+        if (CheckForTowerBannerSelected(startTouchPos))
+        {
+          if (m_Level1UICanvas.GetComponent<Level1UI>().totalCash >= m_currentSelectedGameObject.GetComponent<BannerAttributes>().towerCost)
+          {
+              m_redXButton.SetActive(true);
+              return true;
+          }
+          else
+          {
+               m_Level1UICanvas.GetComponent<Level1UI>().m_bDisplayNotEnoughFundsText = true;
+          }
+            
         }
         return false;
     }
@@ -194,9 +221,41 @@ public class PlayerTouchHandler : MonoBehaviour
     void PlaceTower()
     {
         //Subtract the money from the game currency
+
         m_createdTower.GetComponent<TowerAttributes>().m_bIsActive = true;
+        CreateRadiusCircleAroundTower();
+        m_listOfTowersPlaced.Add(m_createdTower.gameObject);
         m_createdTower = null;
         towersPlaced++;
         m_bTowerCanBePlaced = false;
+    }
+
+    void CreateRadiusCircleAroundTower()
+    {
+        GameObject temp = new GameObject();
+        temp.name = "Radius";
+
+        temp.AddComponent<SpriteRenderer>();
+        temp.GetComponent<SpriteRenderer>().sprite = m_radiusImage;
+        temp.GetComponent<SpriteRenderer>().sortingOrder = 5;
+        temp.GetComponent<SpriteRenderer>().enabled = false;
+        temp.transform.localScale = temp.transform.lossyScale * (m_createdTower.GetComponent<TowerAttributes>().m_fRange/100.0f);
+        temp.transform.SetParent(m_createdTower.transform);
+        temp.transform.localPosition = new Vector3(0, 0, 1.0f);
+    }
+
+    void ResetTowersIfSelected()
+    {
+        if (m_currentSelectedGameObject != null)
+        {
+            if (m_currentSelectedGameObject.GetComponent<TowerAttributes>())
+            {
+                m_currentSelectedGameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+            }
+            else if (m_currentSelectedGameObject.GetComponent<BannerAttributes>())
+            {
+                m_currentSelectedGameObject.GetComponent<BannerAttributes>().m_highlightedBox.SetActive(false);
+            }
+        }
     }
 }

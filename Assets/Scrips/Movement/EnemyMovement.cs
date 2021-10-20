@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField]
-    private float m_fHealth = 0.0f;
 
     [SerializeField]
     private float m_fMovementSpeed = 0.0f;
-
-    [SerializeField]
-    private float m_fDamageToEarth = 0.0f;
 
     [SerializeField]
     private Rigidbody2D m_rigidbody;

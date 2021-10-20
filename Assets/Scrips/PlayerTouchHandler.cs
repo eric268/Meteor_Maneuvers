@@ -7,12 +7,14 @@ public class PlayerTouchHandler : MonoBehaviour
     [SerializeField]
     public GameObject m_currentSelectedGameObject;
 
-    private GameObject m_createdTower;
+    [SerializeField]
+    public GameObject m_createdTower;
 
     public bool m_bannerTowerSelected;
 
     public Vector3 m_touchStartPos;
     public Vector3 m_touchEndPos;
+    public Vector3 m_prevTouchPosition;
 
     [SerializeField]
     public GameObject m_allMeteors;
@@ -29,6 +31,9 @@ public class PlayerTouchHandler : MonoBehaviour
     [SerializeField]
     public Canvas m_Level1UICanvas;
 
+    [SerializeField]
+    public GameObject m_placedTowerParent;
+
     Vector3 m_vTouchHeld;
 
     // Start is called before the first frame update
@@ -38,10 +43,6 @@ public class PlayerTouchHandler : MonoBehaviour
         m_meteorsWithColliders = m_allMeteors.GetComponentsInChildren<Collider2D>();
         m_towersOnBanner = m_banner.GetComponentsInChildren<Collider2D>();
 
-        //foreach(var tower in m_towersOnBanner)
-        //{
-         //   Debug.Log(tower.gameObject.name);
-        //}
     }
 
     // Update is called once per frame
@@ -57,16 +58,21 @@ public class PlayerTouchHandler : MonoBehaviour
             switch (touch.phase)
             {
                 case TouchPhase.Began:
-                    m_touchStartPos = touchedPosition;
-                    m_touchEndPos = Vector3.zero;
+                        m_touchStartPos = touchedPosition;
+                        m_touchEndPos = Vector3.zero;
                     break;
                 case TouchPhase.Moved:
-
                     m_vTouchHeld = new Vector3(touchedPosition.x - m_touchStartPos.x, touchedPosition.y - m_touchStartPos.y, touchedPosition.z - m_touchStartPos.z);
+                    CreateTower();
+                    if (m_vTouchHeld.magnitude != 0.0f && m_createdTower != null)
+                    {
+                        m_createdTower.transform.position = new Vector3((m_vTouchHeld.x-m_prevTouchPosition.x) + m_createdTower.transform.position.x, (m_vTouchHeld.y - m_prevTouchPosition.y) + m_createdTower.transform.position.y, 0);
+                        m_prevTouchPosition = m_vTouchHeld;
+                    }
                     break;
                 case TouchPhase.Ended:
                     m_touchEndPos = touchedPosition;
-                    m_touchStartPos = Vector3.zero;
+                    m_prevTouchPosition = Vector3.zero;
                     m_vTouchHeld = Vector3.zero;
                     break;
             }
@@ -75,6 +81,22 @@ public class PlayerTouchHandler : MonoBehaviour
         if (m_currentSelectedGameObject != null)
         {
 
+        }
+    }
+
+    void CreateTower()
+    {
+        if (m_vTouchHeld.magnitude != 0.0f && m_createdTower == null)
+        {
+            if (m_currentSelectedGameObject != null && m_currentSelectedGameObject.GetComponent<TowerAttributes>())
+            {
+                Vector3 startPos = m_touchStartPos + m_vTouchHeld;
+                m_createdTower = MonoBehaviour.Instantiate(m_currentSelectedGameObject.GetComponent<TowerAttributes>().towerPrefab);
+                m_createdTower.transform.position = startPos;
+                m_createdTower.transform.SetParent(m_placedTowerParent.transform, true);
+                m_currentSelectedGameObject.GetComponent<TowerAttributes>().m_highlightedBox.SetActive(false);
+                m_currentSelectedGameObject = null;
+            }
         }
     }
 
@@ -87,13 +109,20 @@ public class PlayerTouchHandler : MonoBehaviour
             {
                 if (m_Level1UICanvas.GetComponent<Level1UI>().totalCash >= tower.GetComponent<TowerAttributes>().towerCost)
                 {
+                    if (m_currentSelectedGameObject != null && m_currentSelectedGameObject.GetComponent<TowerAttributes>())
+                    {
+                        m_currentSelectedGameObject.GetComponent<TowerAttributes>().m_highlightedBox.SetActive(false);
+                    }
+
                     Debug.Log(tower.gameObject.name);
                     m_redXButton.SetActive(true);
                     m_currentSelectedGameObject = tower.gameObject;
+                    tower.GetComponent<TowerAttributes>().m_highlightedBox.SetActive(true);
                 }
                 else
                 {
                     m_currentSelectedGameObject = null;
+                    tower.GetComponent<TowerAttributes>().m_highlightedBox.SetActive(false);
                     m_Level1UICanvas.GetComponent<Level1UI>().m_bDisplayNotEnoughFundsText = true;
                 }
                 break;

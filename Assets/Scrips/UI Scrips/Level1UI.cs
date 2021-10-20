@@ -73,7 +73,9 @@ public class Level1UI : MonoBehaviour
 
     public void OnXButtonPressed()
     {
+        m_playerTouchHandler.m_currentSelectedGameObject.GetComponent<TowerAttributes>().m_highlightedBox.SetActive(false);
         m_playerTouchHandler.m_currentSelectedGameObject = null;
+        Destroy(m_playerTouchHandler.m_createdTower);
         m_redXButton.SetActive(false);
     }
     private void DisplayInsufficientFundsText()

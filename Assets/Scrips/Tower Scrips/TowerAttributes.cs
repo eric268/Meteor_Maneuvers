@@ -8,14 +8,15 @@ public class TowerAttributes : MonoBehaviour
     public int towerCost;
 
     [SerializeField]
-    GameObject towerPrefab;
+    public GameObject towerPrefab;
 
     [SerializeField]
-    private float towerRadius;
+    public GameObject m_highlightedBox;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        m_highlightedBox.SetActive(false);
     }
 
     // Update is called once per frame

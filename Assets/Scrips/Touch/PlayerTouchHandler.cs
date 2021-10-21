@@ -147,8 +147,8 @@ public class PlayerTouchHandler : MonoBehaviour
             if (tower.GetComponent<Collider2D>().OverlapPoint(startTouchPos))
             {
                 m_currentSelectedGameObject = tower;
-                Debug.Log(m_currentSelectedGameObject.transform.GetChild(0).name);
-                m_currentSelectedGameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+                Debug.Log(m_currentSelectedGameObject.transform.GetChild(1).name);
+                m_currentSelectedGameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
             }
         }
         return;
@@ -239,7 +239,7 @@ public class PlayerTouchHandler : MonoBehaviour
         temp.GetComponent<SpriteRenderer>().sprite = m_radiusImage;
         temp.GetComponent<SpriteRenderer>().sortingOrder = 5;
         temp.GetComponent<SpriteRenderer>().enabled = false;
-        temp.transform.localScale = temp.transform.lossyScale * (m_createdTower.GetComponent<TowerAttributes>().m_fRange/100.0f);
+        temp.transform.localScale = temp.transform.lossyScale * (m_createdTower.GetComponent<TowerAttributes>().m_bulletRange/100.0f);
         temp.transform.SetParent(m_createdTower.transform);
         temp.transform.localPosition = new Vector3(0, 0, 1.0f);
     }
@@ -250,7 +250,8 @@ public class PlayerTouchHandler : MonoBehaviour
         {
             if (m_currentSelectedGameObject.GetComponent<TowerAttributes>())
             {
-                m_currentSelectedGameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+                Debug.Log(m_currentSelectedGameObject.transform.GetChild(1));
+                m_currentSelectedGameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
             }
             else if (m_currentSelectedGameObject.GetComponent<BannerAttributes>())
             {

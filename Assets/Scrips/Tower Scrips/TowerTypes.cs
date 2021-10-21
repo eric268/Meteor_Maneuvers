@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
-[System.Serializable]
-public enum BulletType
+
+public enum TowerType
 {
     GREEN_TOWER,
     PURPLE_TOWER,
     ORANGE_TOWER,
     BLUE_TOWER,
     DRILL_TOWER,
-    NUMBER_OF_TOWER_TYPES
+    NUM_OF_TOWER_TYPES
 }
+

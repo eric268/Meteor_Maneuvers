@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3988202904845527501
+--- !u!1 &704996839241055437
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7736390584791264200}
-  - component: {fileID: 1876748001806675728}
-  - component: {fileID: 4517834360504273119}
-  - component: {fileID: 4309094092733554862}
+  - component: {fileID: 4022985241923161211}
+  - component: {fileID: 417502196924942953}
+  - component: {fileID: 3454644249258329845}
   m_Layer: 0
-  m_Name: OrangeTower
+  m_Name: GreenBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7736390584791264200
+--- !u!4 &4022985241923161211
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3988202904845527501}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.55, y: 0.16, z: 0}
-  m_LocalScale: {x: 1.7460723, y: 2.3280964, z: 1.7460723}
+  m_GameObject: {fileID: 704996839241055437}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.6639996, y: 0.30178484, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1876748001806675728
+--- !u!212 &417502196924942953
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3988202904845527501}
+  m_GameObject: {fileID: 704996839241055437}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -73,57 +72,34 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
-  m_Sprite: {fileID: 7362566751266808592, guid: edcb8fe13b437664d83a46d9bcdf2572, type: 3}
+  m_SortingOrder: 7
+  m_Sprite: {fileID: 50217604581412001, guid: 2657c98fe2d18c949bfe1fca99663f69, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.89, y: 0.42}
+  m_Size: {x: 0.42, y: 0.43}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &4517834360504273119
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3988202904845527501}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.89, y: 0.42}
-    newSize: {x: 0.89, y: 0.42}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.89, y: 0.5}
-  m_EdgeRadius: 0
---- !u!114 &4309094092733554862
+--- !u!114 &3454644249258329845
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3988202904845527501}
+  m_GameObject: {fileID: 704996839241055437}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807bb804382593d429a3b84210991300, type: 3}
+  m_Script: {fileID: 11500000, guid: c5f53400f490446438b88ac92022cf7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fRange: 150
-  m_fHealth: 0
-  m_fTowerCost: 0
-  m_bIsActive: 0
+  m_fBulletSpeed: 2
+  m_totalDistanceTravelled: 0
+  m_range: 0
+  m_fBulletDamage: 4
+  m_fDirection: {x: 0, y: 0, z: 0}
+  m_bulletType: 0
+  m_fBulletLifeTimeCounter: 0

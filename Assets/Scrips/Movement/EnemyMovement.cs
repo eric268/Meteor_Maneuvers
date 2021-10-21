@@ -9,6 +9,9 @@ public class EnemyMovement : MonoBehaviour
     private float m_fMovementSpeed = 0.0f;
 
     [SerializeField]
+    private float m_fDamageOnHit;
+
+    [SerializeField]
     private Rigidbody2D m_rigidbody;
 
     private Vector2 m_vDirection = new Vector2(-1,0);

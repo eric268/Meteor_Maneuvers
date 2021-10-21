@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MainMenuMovement : MonoBehaviour
 {
-    [SerializeField]
-    private Rigidbody2D m_rigidBody;
 
     private Vector2 m_vStartingPosition;
 
@@ -18,7 +16,7 @@ public class MainMenuMovement : MonoBehaviour
     {
         if (transform.position.x <= -22)
         {
-            m_rigidBody.MovePosition(m_vStartingPosition);
+            transform.position = m_vStartingPosition;
         }
     }
 }

@@ -21,9 +21,6 @@ public class TowerAttributes : MonoBehaviour
     private float m_fFiringCounter;
 
     [SerializeField]
-    public float m_fHealth;
-
-    [SerializeField]
     public float m_fTowerCost;
     
     public bool m_bIsActive;
@@ -49,6 +46,7 @@ public class TowerAttributes : MonoBehaviour
             {
                 m_fFiringCounter = 0.0f;
                 m_vDirection = CalculateTowerDirection();
+                Debug.Log(m_vDirection);
                 BulletManager.Instance().FireBullet(m_bulletSpawn.position, m_vDirection, m_bulletType, m_bulletRange);
             }
         }

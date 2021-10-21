@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EarthAttributes : MonoBehaviour
 {
-    public int m_iHealthRemaining;
+    public float m_iHealthRemaining;
     // Start is called before the first frame update
     void Start()
     {

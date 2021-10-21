@@ -118,13 +118,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ffc541bfcdf11c4192fc7c4313163e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fMovementSpeed: 0.7
-  m_fRotationSpeed: 0
+  m_fMovementSpeed: 1.5
+  m_fRotationSpeed: 0.15
   m_fDamageOnHit: 100
+  m_fDeathAnimTime: 0.517
   m_vDirection: {x: -1, y: 0, z: 1}
   m_fWantedRotation: {x: 0, y: 0, z: 0, w: 0}
   m_fAngle: 0
-  m_fHealth: 150
+  m_fStartingHealth: 0
+  m_fCurrentHealth: 0
   m_bIsActive: 0
 --- !u!61 &4491487073136818546
 BoxCollider2D:

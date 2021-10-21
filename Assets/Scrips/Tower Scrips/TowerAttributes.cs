@@ -36,7 +36,6 @@ public class TowerAttributes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(m_bulletSpawn.transform.lossyScale);
         if (m_bIsActive)
         {
             //Add another check before to see if enemy is within range
@@ -46,7 +45,6 @@ public class TowerAttributes : MonoBehaviour
             {
                 m_fFiringCounter = 0.0f;
                 m_vDirection = CalculateTowerDirection();
-                Debug.Log(m_vDirection);
                 BulletManager.Instance().FireBullet(m_bulletSpawn.position, m_vDirection, m_bulletType, m_bulletRange);
             }
         }

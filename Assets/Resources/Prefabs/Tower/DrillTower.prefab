@@ -123,7 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 807bb804382593d429a3b84210991300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fRange: 0
-  m_fHealth: 0
-  m_fTowerCost: 0
+  m_bulletRange: 0
+  m_bulletSpawn: {fileID: 0}
+  m_bulletType: 0
+  m_fFireRate: 0
+  m_fTowerCost: 250
   m_bIsActive: 0

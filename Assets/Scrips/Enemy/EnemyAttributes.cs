@@ -10,7 +10,12 @@ public class EnemyAttributes : MonoBehaviour
     [SerializeField]
     private float m_fRotationSpeed;
     [SerializeField]
-    private float m_fDamageOnHit;
+    public float m_fDamageOnHit;
+
+    [SerializeField]
+    public float m_fDeathAnimTime;
+
+    private float m_fDeathAnimCounter;
 
     [SerializeField]
     public Vector3 m_vDirection = new Vector3(-1,0,0);
@@ -18,41 +23,43 @@ public class EnemyAttributes : MonoBehaviour
     public Quaternion m_fWantedRotation;
 
     public float m_fAngle;
-    [SerializeField]
-    public float m_fHealth;
 
     [SerializeField]
-    private bool m_bIsActive = false;
+    public float m_fStartingHealth;
 
-   
+    [SerializeField]
+    public float m_fCurrentHealth;
 
+    [SerializeField]
+    public bool m_bIsAlive;
 
+    public EnemyType m_enemyType;
 
     // Start is called before the first frame update
     void Start()
     {
+        m_bIsAlive = true;
         m_fAngle = 180.0f;
+        m_fDeathAnimCounter = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (m_bIsActive)
+        if (m_bIsAlive)
         {
             transform.position += (m_vDirection * m_fMovementSpeed)*Time.deltaTime;
-
-            //if (m_fAngle != transform.eulerAngles.z)
-            {
-                m_fWantedRotation = Quaternion.Euler(new Vector3(0f, 0f, m_fAngle));
-                transform.rotation = Quaternion.Slerp(transform.rotation, m_fWantedRotation, m_fRotationSpeed);
-            } 
+            m_fWantedRotation = Quaternion.Euler(new Vector3(0f, 0f, m_fAngle));
+            transform.rotation = Quaternion.Slerp(transform.rotation, m_fWantedRotation, m_fRotationSpeed);
         }
-    }
-
-    public float CalculateRotationBasedOnDirection()
-    {
-        float x = m_vDirection.x;
-        float y = m_vDirection.y;
-        return Mathf.Atan((y / x));
+        else
+        {
+            m_fDeathAnimCounter += Time.deltaTime;
+            if (m_fDeathAnimCounter >= m_fDeathAnimTime)
+            {
+                m_fDeathAnimCounter = 0;
+                EnemyManager.Instance().ReturnEnemy(gameObject, m_enemyType);
+            }
+        }
     }
 }

@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletManager : MonoBehaviour
+[System.Serializable]
+public class BulletManager
 {
     private static BulletManager instance = null;
 
@@ -47,7 +48,6 @@ public class BulletManager : MonoBehaviour
         {
             AddBullet(type);
         }
-
         temp_bullet = bulletPools[(int)type].Dequeue();
         temp_bullet.transform.position = spawnPosition;
         temp_bullet.GetComponent<BulletAttributes>().m_fDirection = new Vector3(direction.x, direction.y, 1.0f);

@@ -6,8 +6,17 @@ using UnityEngine;
 
 public class Level1UI : MonoBehaviour
 {
-    public int totalCash = 450;
-    public int totalHealh = 100;
+    public float totalCash = 450;
+    public float totalHealth = 100;
+
+    [SerializeField]
+    public TextMeshProUGUI m_iHealthDisplayText;
+
+    [SerializeField]
+    public TextMeshProUGUI m_currencyRemainingText;
+
+    [SerializeField]
+    public GameObject m_earthRef;
 
     #region<PauseMenu>
     [SerializeField]
@@ -41,6 +50,13 @@ public class Level1UI : MonoBehaviour
         {
             DisplayInsufficientFundsText();
         }
+
+        if (totalHealth != m_earthRef.GetComponent<EarthAttributes>().m_iHealthRemaining)
+        {
+            totalHealth = m_earthRef.GetComponent<EarthAttributes>().m_iHealthRemaining;
+            m_iHealthDisplayText.text = totalHealth.ToString();
+        }
+
     }
 
     public void OnStartPressed()

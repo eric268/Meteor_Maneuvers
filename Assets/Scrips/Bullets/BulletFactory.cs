@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletFactory : MonoBehaviour
+[System.Serializable]
+public class BulletFactory
 {
     private static BulletFactory m_instance = null;
 

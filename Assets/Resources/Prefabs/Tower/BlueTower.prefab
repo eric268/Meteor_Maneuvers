@@ -128,8 +128,7 @@ MonoBehaviour:
   m_bulletSpawn: {fileID: 4187318767231311341}
   m_bulletType: 3
   m_fFireRate: 2
-  m_fHealth: 0
-  m_fTowerCost: 0
+  m_fTowerCost: 550
   m_bIsActive: 0
 --- !u!1 &8000374071031837772
 GameObject:

@@ -157,7 +157,6 @@ MonoBehaviour:
   m_bulletRange: 400
   m_bulletSpawn: {fileID: 2303896772050714436}
   m_bulletType: 1
-  m_fFireRate: 1
-  m_fHealth: 1
-  m_fTowerCost: 1
+  m_fFireRate: 2
+  m_fTowerCost: 250
   m_bIsActive: 0

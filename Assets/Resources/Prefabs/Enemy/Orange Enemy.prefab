@@ -118,10 +118,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ffc541bfcdf11c4192fc7c4313163e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fMovementSpeed: 5
+  m_fMovementSpeed: 4
   m_fRotationSpeed: 0.32
   m_fDamageOnHit: 2
   m_fDeathAnimTime: 0.7
+  m_fDeathAnimCounter: 0
   m_vDirection: {x: -1, y: 0, z: 0}
   m_fWantedRotation: {x: 0, y: 0, z: 0, w: 0}
   m_fCashWhenDestroyed: 25
@@ -130,6 +131,7 @@ MonoBehaviour:
   m_fCurrentHealth: 5
   m_bIsAlive: 1
   m_enemyType: 2
+  m_fDistanceTravelled: 0
 --- !u!61 &3450798187420751081
 BoxCollider2D:
   m_ObjectHideFlags: 0

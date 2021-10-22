@@ -15,7 +15,7 @@ public class TowerCollision : MonoBehaviour
     void Start()
     {
         m_parent = transform.parent.gameObject;
-        m_fRotationSpeed = 0.7f;
+        m_fRotationSpeed = 0.9f;
         m_fFiringCounter = 0.0f;
         m_wantedRotation = Quaternion.Euler(0, 0, 0);
         

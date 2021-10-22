@@ -8,9 +8,9 @@ public class Level1UI : MonoBehaviour
 {
     public EnemySpawner m_enemySpawnerRef;
 
-    public static float m_fTotalCash = 850;
-    public float m_fTotalHealth = 100;
-    public static float m_fTotalScore = 0;
+    public static float m_fTotalCash;
+    public float m_fTotalHealth;
+    public static float m_fTotalScore;
 
     [SerializeField]
     public TextMeshProUGUI m_scoreValueText;
@@ -58,6 +58,10 @@ public class Level1UI : MonoBehaviour
         m_fTimeToDisplayFundWarning = 3.5f;
         m_notEnoughFundsText.enabled = false;
         m_GreenTowerAlredyPlaced.enabled = false;
+
+        m_fTotalCash = 850;
+        m_fTotalHealth = 100;
+        m_fTotalScore = 0;
 
     }
     private void Update()

@@ -36,12 +36,14 @@ public class GoldNuggetManager : MonoBehaviour
                     {
                         Level1UI.m_fTotalScore += m_vValueUponCollection;
                         Level1UI.m_fTotalCash += m_vValueUponCollection;
+                        SoundEffectManager.PlaySoundEffect("NuggetCollected");
                         Destroy(gameObject);
                     }
                     break;
                 case TouchPhase.Moved:
                     if (GetComponent<Collider2D>().OverlapPoint(touchedPosition))
                     {
+                        SoundEffectManager.PlaySoundEffect("NuggetCollected");
                         Level1UI.m_fTotalScore += m_vValueUponCollection;
                         Level1UI.m_fTotalCash += m_vValueUponCollection;
                         Destroy(gameObject);

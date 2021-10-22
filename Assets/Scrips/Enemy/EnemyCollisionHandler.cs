@@ -57,6 +57,11 @@ public class EnemyCollisionHandler : MonoBehaviour
                     GetComponent<Animator>().SetFloat("Health", 0);
                     Level1UI.m_fTotalCash += GetComponent<EnemyAttributes>().m_fCashWhenDestroyed;
                     Level1UI.m_fTotalScore += GetComponent<EnemyAttributes>().m_fCashWhenDestroyed;
+                    SoundEffectManager.PlaySoundEffect("Explosion");
+                }
+                else
+                {
+                    SoundEffectManager.PlaySoundEffect("BulletHit");
                 }
             }
             else if (coll.gameObject.GetComponent<EarthAttributes>())
@@ -64,6 +69,7 @@ public class EnemyCollisionHandler : MonoBehaviour
                 coll.gameObject.GetComponent<EarthAttributes>().m_iHealthRemaining -= GetComponent<EnemyAttributes>().m_fDamageOnHit;
                 GetComponent<EnemyAttributes>().m_bIsAlive = false;
                 GetComponent<Animator>().SetFloat("Health", 0);
+                SoundEffectManager.PlaySoundEffect("Explosion");
             }
         }
     }

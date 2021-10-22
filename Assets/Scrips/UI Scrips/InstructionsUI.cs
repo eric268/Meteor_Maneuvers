@@ -48,11 +48,13 @@ public class InstructionsUI : MonoBehaviour
     #region<GameObjective>
     public void OnPage1NextPressed()
     {
+        SoundEffectManager.PlaySoundEffect("ButtonPressed");
         mainCanvas.enabled = false;
         secondCanvas.enabled = true;
     }
     public void OnPage2NextPressed()
     {
+        SoundEffectManager.PlaySoundEffect("ButtonPressed");
         DisableAllTowerText();
         secondCanvas.enabled = false;
         thirdCanvas.enabled = true;
@@ -60,6 +62,7 @@ public class InstructionsUI : MonoBehaviour
 
     public void OnPage2PreviousPressed()
     {
+        SoundEffectManager.PlaySoundEffect("ButtonPressed");
         DisableAllTowerText();
         secondCanvas.enabled = false;
         mainCanvas.enabled = true;
@@ -67,6 +70,7 @@ public class InstructionsUI : MonoBehaviour
 
     public void OnPage3PreviousPressed()
     {
+        SoundEffectManager.PlaySoundEffect("ButtonPressed");
         DisableAllEnemyText();
         thirdCanvas.enabled = false;
         secondCanvas.enabled = true;
@@ -74,6 +78,7 @@ public class InstructionsUI : MonoBehaviour
 
     public void OnReturnToMainMenuPressed()
     {
+        SoundEffectManager.PlaySoundEffect("ButtonPressed");
         SceneManager.LoadScene("MainMenu");
     }
     #endregion<GameObjective>
@@ -91,26 +96,31 @@ public class InstructionsUI : MonoBehaviour
 
     public void OnPlayerTowerPressed()
     {
+        SoundEffectManager.PlaySoundEffect("ButtonPressed");
         m_PlayerTowerText.enabled = !m_PlayerTowerText.enabled;
     }
 
     public void OnPurpleTowerPressed()
     {
+        SoundEffectManager.PlaySoundEffect("ButtonPressed");
         m_PurpleTowerText.enabled = !m_PurpleTowerText.enabled;
     }
 
     public void OnOrangeTowerPressed()
     {
+        SoundEffectManager.PlaySoundEffect("ButtonPressed");
         m_OrangeTowerText.enabled = !m_OrangeTowerText.enabled;
     }
 
     public void OnBlueTowerPressed()
     {
+        SoundEffectManager.PlaySoundEffect("ButtonPressed");
         m_BlueTowerText.enabled = !m_BlueTowerText.enabled;
     }
 
     public void OnDrillPressed()
     {
+        SoundEffectManager.PlaySoundEffect("ButtonPressed");
         m_DrillTowerText.enabled = !m_DrillTowerText.enabled;
         m_goldImage.enabled = m_DrillTowerText.enabled;
     }
@@ -125,14 +135,17 @@ public class InstructionsUI : MonoBehaviour
     }
     public void OnGreenEnemyPressed()
     {
+        SoundEffectManager.PlaySoundEffect("ButtonPressed");
         m_GreenEnemyText.enabled = !m_GreenEnemyText.enabled;
     }
     public void OnOrangeEnemyPressed()
     {
+        SoundEffectManager.PlaySoundEffect("ButtonPressed");
         m_OrangeEnemyText.enabled = !m_OrangeEnemyText.enabled;
     }
     public void OnPurpleEnemyPressed()
     {
+        SoundEffectManager.PlaySoundEffect("ButtonPressed");
         m_PurpleEnemyText.enabled = !m_PurpleEnemyText.enabled;
     }
     #endregion<Enemies>

@@ -34,7 +34,6 @@ public class TowerCollision : MonoBehaviour
                 ShootBullet();
             }
         }
-        //m_parent.transform.rotation = m_wantedRotation;//Quaternion.Slerp(transform.rotation, m_wantedRotation, m_fRotationSpeed);
     }
 
     GameObject FindTarget()
@@ -82,6 +81,7 @@ public class TowerCollision : MonoBehaviour
             if (m_fFiringCounter >= m_parent.GetComponent<TowerAttributes>().m_fFireRate)
             {
                 m_fFiringCounter = 0.0f;
+                SoundEffectManager.PlaySoundEffect("FireBullet");
                 if (m_parent.GetComponent<TowerAttributes>().m_bulletType == BulletType.BLUE_BULLET)
                 {
                     float maxSpread = 20.0f;

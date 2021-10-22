@@ -36,11 +36,13 @@ public class GreenPlayerController : MonoBehaviour
                     {
                         if (m_bSelected)
                         {
+                            SoundEffectManager.PlaySoundEffect("ButtonPressed");
                             m_bSelected = false;
                             GetComponent<SpriteRenderer>().enabled = false;
                         }
                         else
                         {
+                            SoundEffectManager.PlaySoundEffect("ButtonPressed");
                             GetComponent<SpriteRenderer>().enabled = true;
                             m_bSelected = true;
                         }
@@ -93,6 +95,7 @@ public class GreenPlayerController : MonoBehaviour
             if (coll.gameObject.GetComponent<EnemyAttributes>())
             {
                 PlayerTouchHandler.m_bGreenPlayerPlaced = false;
+                SoundEffectManager.PlaySoundEffect("Explosion");
                 if (coll.gameObject.GetComponent<EnemyAttributes>().m_enemyType != EnemyType.PURPLE_ENEMY)
                 {
                     Destroy(transform.parent.gameObject);

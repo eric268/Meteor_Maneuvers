@@ -273,6 +273,17 @@ public class PlayerTouchHandler : MonoBehaviour
         //Subtract the money from the game currency
         Level1UI.m_fTotalCash -= m_createdTower.GetComponent<TowerAttributes>().m_fTowerCost;
         m_createdTower.GetComponent<TowerAttributes>().m_bIsActive = true;
+
+        if (m_createdTower.GetComponent<TowerAttributes>().m_towerType == TowerType.DRILL_TOWER)
+        {
+            m_listOfTowersPlaced.Add(m_createdTower.gameObject);
+            m_createdTower = null;
+            towersPlaced++;
+            m_bTowerCanBePlaced = false;
+            m_redXButton.SetActive(false);
+            return;
+        }
+
         CreateRadiusCircleAroundTower();
         CreateColliderAroundTower();
         if (m_createdTower.GetComponent<TowerAttributes>().m_towerType == TowerType.GREEN_TOWER)

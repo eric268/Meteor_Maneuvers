@@ -8,9 +8,12 @@ public class Level1UI : MonoBehaviour
 {
     public EnemySpawner m_enemySpawnerRef;
 
-    public static float m_fTotalCash = 450;
+    public static float m_fTotalCash = 850;
     public float m_fTotalHealth = 100;
     public static float m_fTotalScore = 0;
+
+    [SerializeField]
+    public TextMeshProUGUI m_scoreValueText;
 
     [SerializeField]
     public TextMeshProUGUI m_GreenTowerAlredyPlaced;
@@ -48,6 +51,7 @@ public class Level1UI : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        BackgroundSoundManager.PlayBackgroundMusic("Level1Sound");
         OnResumePlayPressed();
         m_redXButton.SetActive(false);
         m_fFundsTextCounter = 0.0f;
@@ -59,6 +63,7 @@ public class Level1UI : MonoBehaviour
     private void Update()
     {
         m_cashRemainingText.text = m_fTotalCash.ToString();
+        m_scoreValueText.text = m_fTotalScore.ToString();
 
         if (m_bDisplayOnlyOneGreenTower)
         {
@@ -83,24 +88,30 @@ public class Level1UI : MonoBehaviour
 
     public void OnStartPressed()
     {
+        SoundEffectManager.PlaySoundEffect("ButtonPressed");
         EnemySpawner.m_fStartLevel = true;
     }
     public void PauseMenuPressed()
     {
+        SoundEffectManager.PlaySoundEffect("ButtonPressed");
         Time.timeScale = 0;
         pauseCanvas.enabled = true;
     }
     public void OnResumePlayPressed()
     {
+        SoundEffectManager.PlaySoundEffect("ButtonPressed");
         Time.timeScale = 1;
         pauseCanvas.enabled = false;
     }
     public void OnMainMenuPressed()
     {
+        SoundEffectManager.PlaySoundEffect("ButtonPressed");
         SceneManager.LoadScene("MainMenu");
     }
-    public void OnQuitPressed()
+    public 
+        void OnQuitPressed()
     {
+        SoundEffectManager.PlaySoundEffect("ButtonPressed");
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
@@ -111,6 +122,7 @@ public class Level1UI : MonoBehaviour
 
     public void OnXButtonPressed()
     {
+        SoundEffectManager.PlaySoundEffect("ButtonPressed");
         if (m_playerTouchHandler.m_currentSelectedGameObject != null)
         {
             m_playerTouchHandler.m_currentSelectedGameObject.GetComponent<BannerAttributes>().m_highlightedBox.SetActive(false);

@@ -81,6 +81,10 @@ public class Level1UI : MonoBehaviour
             m_iHealthDisplayText.text = m_fTotalHealth.ToString();
             if (m_fTotalHealth <= 0)
             {
+                PlayerPrefs.SetFloat("HealthRemaining", 0);
+                PlayerPrefs.SetFloat("ScoreRemaining", m_fTotalScore);
+                PlayerPrefs.SetInt("Saved", 1);
+                PlayerPrefs.Save();
                 SceneManager.LoadScene("GameOver");
             }
         }

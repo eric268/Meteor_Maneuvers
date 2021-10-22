@@ -49,7 +49,7 @@ public class SoundEffectManager : MonoBehaviour
         }
         else if (name == buttonPressed.name)
         {
-            m_audioSource.PlayOneShot(buttonPressed);
+            m_audioSource.PlayOneShot(buttonPressed, 0.25f);
         }
 
     }

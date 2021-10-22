@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 [System.Serializable]
 public class EnemySpawner : MonoBehaviour
@@ -21,6 +22,10 @@ public class EnemySpawner : MonoBehaviour
 
     public static bool m_fStartLevel;
 
+    public static float m_fNumActiveEnemeis;
+
+    GameObject m_earth;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +33,8 @@ public class EnemySpawner : MonoBehaviour
         m_fOrangeEnemySpawnCounter = 0.0f;
         m_fPurpleEnemySpawnCounter = 0.0f;
         m_fStartLevel = false;
+        m_fNumActiveEnemeis = 0.0f;
+        m_earth = FindObjectOfType<EarthAttributes>().gameObject;
     }
 
     // Update is called once per frame
@@ -35,18 +42,26 @@ public class EnemySpawner : MonoBehaviour
     {
         if (m_fStartLevel)
         {
-            CheckIfShouldSpawnEnemy(Time.deltaTime, m_fNumGreenEnemiesToSpawn, m_fGreenEnemySpawnTimer, ref m_fGreenEnemySpawnCounter, EnemyType.GREEN_ENEMY);
-            CheckIfShouldSpawnEnemy(Time.deltaTime, m_fNumOrangeEnemiesToSpawn, m_fOrangeEnemySpawnTimer,ref m_fOrangeEnemySpawnCounter, EnemyType.ORANGE_ENEMY);
-            CheckIfShouldSpawnEnemy(Time.deltaTime, m_fNumPurpleEnemiesToSpawn, m_fPurpleEnemySpawnTimer, ref m_fPurpleEnemySpawnCounter, EnemyType.PURPLE_ENEMY);
+            CheckIfShouldSpawnEnemy(Time.deltaTime, ref m_fNumGreenEnemiesToSpawn, m_fGreenEnemySpawnTimer, ref m_fGreenEnemySpawnCounter, EnemyType.GREEN_ENEMY);
+            CheckIfShouldSpawnEnemy(Time.deltaTime, ref m_fNumOrangeEnemiesToSpawn, m_fOrangeEnemySpawnTimer,ref m_fOrangeEnemySpawnCounter, EnemyType.ORANGE_ENEMY);
+            CheckIfShouldSpawnEnemy(Time.deltaTime, ref m_fNumPurpleEnemiesToSpawn, m_fPurpleEnemySpawnTimer, ref m_fPurpleEnemySpawnCounter, EnemyType.PURPLE_ENEMY);
 
             if (m_fNumGreenEnemiesToSpawn == 0 && m_fNumOrangeEnemiesToSpawn == 0 && m_fNumPurpleEnemiesToSpawn == 0)
             {
-                m_fStartLevel = false;
+                if (m_fNumActiveEnemeis ==0)
+                {
+                    m_fStartLevel = false;
+                    PlayerPrefs.SetFloat("HealthRemaining", m_earth.GetComponent<EarthAttributes>().m_iHealthRemaining);
+                    PlayerPrefs.SetFloat("ScoreRemaining", Level1UI.m_fTotalScore);
+                    PlayerPrefs.SetInt("Saved", 1);
+                    PlayerPrefs.Save();
+                    SceneManager.LoadScene("GameOver");
+                }
             }
         }
     }
 
-    void CheckIfShouldSpawnEnemy(float deltaTime,float numEnemiesLeftToSpawn, float spawnTimer, ref float spawnCounter, EnemyType type)
+    void CheckIfShouldSpawnEnemy(float deltaTime, ref float numEnemiesLeftToSpawn, float spawnTimer, ref float spawnCounter, EnemyType type)
     {
         if (numEnemiesLeftToSpawn > 0)
         {

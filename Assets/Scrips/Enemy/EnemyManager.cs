@@ -54,6 +54,7 @@ public class EnemyManager
         temp_enemy.GetComponent<EnemyAttributes>().m_bIsAlive = true;
         temp_enemy.transform.position = spawnPosition;
         temp_enemy.SetActive(true);
+        EnemySpawner.m_fNumActiveEnemeis++;
         return temp_enemy;
     }
 
@@ -66,6 +67,7 @@ public class EnemyManager
         returnedEnemy.GetComponent<Animator>().SetFloat("Health", returnedEnemy.GetComponent<EnemyAttributes>().m_fStartingHealth);
         returnedEnemy.GetComponent<EnemyAttributes>().m_fCurrentHealth = returnedEnemy.GetComponent<EnemyAttributes>().m_fStartingHealth;
         returnedEnemy.SetActive(false);
+        EnemySpawner.m_fNumActiveEnemeis--;
         enemyPools[(int)type].Enqueue(returnedEnemy);
     }
 

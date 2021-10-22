@@ -8,8 +8,9 @@ public class Level1UI : MonoBehaviour
 {
     public EnemySpawner m_enemySpawnerRef;
 
-    public float totalCash = 450;
+    public static float totalCash = 450;
     public float totalHealth = 100;
+
 
     [SerializeField]
     public TextMeshProUGUI m_iHealthDisplayText;
@@ -45,8 +46,6 @@ public class Level1UI : MonoBehaviour
         m_fFundsTextCounter = 0.0f;
         m_fTimeToDisplayFundWarning = 3.5f;
         m_notEnoughFundsText.enabled = false;
-
-        m_enemySpawnerRef = FindObjectOfType<EnemySpawner>();
     }
     private void Update()
     {
@@ -69,7 +68,7 @@ public class Level1UI : MonoBehaviour
 
     public void OnStartPressed()
     {
-        m_enemySpawnerRef.m_fStartLevel = true;
+        EnemySpawner.m_fStartLevel = true;
     }
     public void PauseMenuPressed()
     {

@@ -29,5 +29,6 @@ public class BulletAttributes : MonoBehaviour
         }
         transform.position += (m_fDirection * m_fBulletSpeed) * Time.deltaTime;
         m_totalDistanceTravelled += (m_fDirection.magnitude * m_fBulletSpeed) * Time.deltaTime;
+        Debug.Log(m_totalDistanceTravelled);
     }
 }

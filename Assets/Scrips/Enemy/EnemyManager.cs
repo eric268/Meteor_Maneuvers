@@ -62,6 +62,7 @@ public class EnemyManager
         returnedEnemy.transform.position = m_vSpawnLocation;
         returnedEnemy.GetComponent<EnemyAttributes>().m_vDirection = new Vector3(-1,0,1.0f);
         returnedEnemy.GetComponent<EnemyAttributes>().m_fAngle = 180.0f;
+        returnedEnemy.GetComponent<EnemyAttributes>().m_fDistanceTravelled = 0.0f;
         returnedEnemy.GetComponent<Animator>().SetFloat("Health", returnedEnemy.GetComponent<EnemyAttributes>().m_fStartingHealth);
         returnedEnemy.GetComponent<EnemyAttributes>().m_fCurrentHealth = returnedEnemy.GetComponent<EnemyAttributes>().m_fStartingHealth;
         returnedEnemy.SetActive(false);

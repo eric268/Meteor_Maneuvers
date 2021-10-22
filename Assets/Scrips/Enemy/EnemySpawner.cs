@@ -19,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
     public float m_fOrangeEnemySpawnCounter;
     public float m_fPurpleEnemySpawnCounter;
 
-    public bool m_fStartLevel;
+    public static bool m_fStartLevel;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +38,11 @@ public class EnemySpawner : MonoBehaviour
             CheckIfShouldSpawnEnemy(Time.deltaTime, m_fNumGreenEnemiesToSpawn, m_fGreenEnemySpawnTimer, ref m_fGreenEnemySpawnCounter, EnemyType.GREEN_ENEMY);
             CheckIfShouldSpawnEnemy(Time.deltaTime, m_fNumOrangeEnemiesToSpawn, m_fOrangeEnemySpawnTimer,ref m_fOrangeEnemySpawnCounter, EnemyType.ORANGE_ENEMY);
             CheckIfShouldSpawnEnemy(Time.deltaTime, m_fNumPurpleEnemiesToSpawn, m_fPurpleEnemySpawnTimer, ref m_fPurpleEnemySpawnCounter, EnemyType.PURPLE_ENEMY);
+
+            if (m_fNumGreenEnemiesToSpawn == 0 && m_fNumOrangeEnemiesToSpawn == 0 && m_fNumPurpleEnemiesToSpawn == 0)
+            {
+                m_fStartLevel = false;
+            }
         }
     }
 

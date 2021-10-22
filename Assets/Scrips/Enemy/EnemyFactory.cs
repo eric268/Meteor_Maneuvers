@@ -10,6 +10,7 @@ public class EnemyFactory
     GameObject m_greenEnemy;
     GameObject m_orangeEnemy;
     GameObject m_purpleEnemy;
+    int val = 0;
 
     private GameObject m_enemyController;
 
@@ -44,6 +45,8 @@ public class EnemyFactory
         {
             case EnemyType.GREEN_ENEMY:
                 temp_enemy = MonoBehaviour.Instantiate(m_greenEnemy);
+                temp_enemy.name = "Green" + val;
+                val++;
                 break;
             case EnemyType.PURPLE_ENEMY:
                 temp_enemy = MonoBehaviour.Instantiate(m_purpleEnemy);

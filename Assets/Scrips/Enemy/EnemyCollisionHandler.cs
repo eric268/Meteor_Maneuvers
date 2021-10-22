@@ -32,7 +32,6 @@ public class EnemyCollisionHandler : MonoBehaviour
             {
                 if (GetComponent<EnemyAttributes>().m_vDirection != wayPoint.m_vDirection)
                 {
-
                     GetComponent<EnemyAttributes>().m_fAngle = transform.eulerAngles.z + MathHelper.CalculateAngle(GetComponent<EnemyAttributes>().m_vDirection, wayPoint.m_vDirection);
                     GetComponent<EnemyAttributes>().m_vDirection = wayPoint.m_vDirection;
                 }
@@ -56,6 +55,7 @@ public class EnemyCollisionHandler : MonoBehaviour
                 {
                     GetComponent<EnemyAttributes>().m_bIsAlive = false;
                     GetComponent<Animator>().SetFloat("Health", 0);
+                    Level1UI.totalCash += GetComponent<EnemyAttributes>().m_fCashWhenDestroyed;
                 }
             }
             else if (coll.gameObject.GetComponent<EarthAttributes>())

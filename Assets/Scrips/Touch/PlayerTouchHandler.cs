@@ -158,7 +158,7 @@ public class PlayerTouchHandler : MonoBehaviour
     {
         if (CheckForTowerBannerSelected(startTouchPos))
         {
-          if (m_Level1UICanvas.GetComponent<Level1UI>().totalCash >= m_currentSelectedGameObject.GetComponent<BannerAttributes>().towerCost)
+          if (Level1UI.totalCash >= m_currentSelectedGameObject.GetComponent<BannerAttributes>().towerCost)
           {
               m_redXButton.SetActive(true);
               return true;
@@ -221,14 +221,26 @@ public class PlayerTouchHandler : MonoBehaviour
     void PlaceTower()
     {
         //Subtract the money from the game currency
-        m_Level1UICanvas.GetComponent<Level1UI>().totalCash -= m_createdTower.GetComponent<TowerAttributes>().m_fTowerCost;
+        Level1UI.totalCash -= m_createdTower.GetComponent<TowerAttributes>().m_fTowerCost;
         m_createdTower.GetComponent<TowerAttributes>().m_bIsActive = true;
         CreateRadiusCircleAroundTower();
+        CreateColliderAroundTower();
         m_listOfTowersPlaced.Add(m_createdTower.gameObject);
         m_createdTower = null;
         towersPlaced++;
         m_bTowerCanBePlaced = false;
         
+    }
+
+    void CreateColliderAroundTower()
+    {
+        GameObject temp = new GameObject();
+        temp.name = "TowerColldider";
+        temp.AddComponent<CircleCollider2D>();
+        temp.GetComponent<CircleCollider2D>().radius = m_createdTower.GetComponent<TowerAttributes>().m_bulletRange / 100.0f;
+        temp.AddComponent<TowerCollision>();
+        temp.transform.SetParent(m_createdTower.transform);
+        temp.transform.localPosition = new Vector3(0, 0, 1.0f);
     }
 
     void CreateRadiusCircleAroundTower()

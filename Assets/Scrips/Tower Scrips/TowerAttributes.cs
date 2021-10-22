@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TowerAttributes : MonoBehaviour
 {
-    private Vector2 m_vDirection;
+    public Vector2 m_vDirection;
 
     [SerializeField]
     public float m_bulletRange;
@@ -13,12 +13,12 @@ public class TowerAttributes : MonoBehaviour
     public Transform m_bulletSpawn;
 
     [SerializeField]
-    private BulletType m_bulletType;
+    public BulletType m_bulletType;
 
     [SerializeField]
     public float m_fFireRate;
 
-    private float m_fFiringCounter;
+    public float m_fFiringCounter;
 
     [SerializeField]
     public float m_fTowerCost;
@@ -36,51 +36,7 @@ public class TowerAttributes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_bIsActive)
-        {
-            //Add another check before to see if enemy is within range
-            //Then store all enemies within range and sort them to the lowest x value and target this one
-            m_fFiringCounter += Time.deltaTime;
-            if (m_fFiringCounter >= m_fFireRate)
-            {
-                m_fFiringCounter = 0.0f;
-                m_vDirection = CalculateTowerDirection(transform.rotation.eulerAngles.z);
-
-                if (m_bulletType == BulletType.BLUE_BULLET)
-                {
-                    float maxSpread = 20.0f;
-                    float degreesBetweenBullets = 10;
-                    for (int i = 0; i < 5; i++)
-                    {
-                        Vector2 tempDir = CalculateTowerDirection(transform.rotation.eulerAngles.z - maxSpread + (i * degreesBetweenBullets ));
-                        BulletManager.Instance().FireBullet(m_bulletSpawn.position, tempDir, m_bulletType, m_bulletRange);
-
-                    }
-                }
-                else
-                {
-                    BulletManager.Instance().FireBullet(m_bulletSpawn.position, m_vDirection, m_bulletType, m_bulletRange);
-                }
-            }
-        }
-    }
-
-    public Vector2 CalculateTowerDirection(float rotation)
-    {
-        return new Vector2(Mathf.Cos(rotation * Mathf.Deg2Rad), Mathf.Sin(rotation * Mathf.Deg2Rad));
+       
     }
     
 }
-/*
-void Tower::AimAtTarget(Vector2 targetPos)
-{
-    float x1, y1;
-    GetSprite()->GetPosition(x1, y1);
-    float x2 = targetPos.GetX();
-    float y2 = targetPos.GetY();
-    Vector2 vec = MathFunctions::VectorFromTwoPoints(x1, y1, x2, y2);
-    m_angleToTarget = MathFunctions::CalculateAngle(GetDirection(), vec);
-    GetSprite()->SetAngle(m_angleToTarget);
-    m_shootingDir = Vector2(cosf(m_angleToTarget), sinf(m_angleToTarget));
-}
-*/

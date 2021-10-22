@@ -22,6 +22,8 @@ public class EnemyAttributes : MonoBehaviour
 
     public Quaternion m_fWantedRotation;
 
+    public float m_fCashWhenDestroyed;
+
     public float m_fAngle;
 
     [SerializeField]
@@ -35,11 +37,14 @@ public class EnemyAttributes : MonoBehaviour
 
     public EnemyType m_enemyType;
 
+    public float m_fDistanceTravelled;
+
     // Start is called before the first frame update
     void Start()
     {
         m_fAngle = 180.0f;
         m_fDeathAnimCounter = 0;
+        m_fDistanceTravelled = 0;
     }
 
     // Update is called once per frame
@@ -48,6 +53,7 @@ public class EnemyAttributes : MonoBehaviour
         if (m_bIsAlive)
         {
             transform.position += (m_vDirection * m_fMovementSpeed)*Time.deltaTime;
+            m_fDistanceTravelled += m_fMovementSpeed * Time.deltaTime;
             m_fWantedRotation = Quaternion.Euler(new Vector3(0f, 0f, m_fAngle));
             transform.rotation = Quaternion.Slerp(transform.rotation, m_fWantedRotation, m_fRotationSpeed);
         }

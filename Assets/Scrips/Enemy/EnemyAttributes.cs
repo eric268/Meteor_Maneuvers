@@ -38,7 +38,6 @@ public class EnemyAttributes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_bIsAlive = true;
         m_fAngle = 180.0f;
         m_fDeathAnimCounter = 0;
     }
@@ -54,12 +53,14 @@ public class EnemyAttributes : MonoBehaviour
         }
         else
         {
+            
             m_fDeathAnimCounter += Time.deltaTime;
             if (m_fDeathAnimCounter >= m_fDeathAnimTime)
             {
                 m_fDeathAnimCounter = 0;
                 EnemyManager.Instance().ReturnEnemy(gameObject, m_enemyType);
             }
+            
         }
     }
 }

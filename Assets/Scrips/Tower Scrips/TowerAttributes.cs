@@ -44,16 +44,30 @@ public class TowerAttributes : MonoBehaviour
             if (m_fFiringCounter >= m_fFireRate)
             {
                 m_fFiringCounter = 0.0f;
-                m_vDirection = CalculateTowerDirection();
-                BulletManager.Instance().FireBullet(m_bulletSpawn.position, m_vDirection, m_bulletType, m_bulletRange);
+                m_vDirection = CalculateTowerDirection(transform.rotation.eulerAngles.z);
+
+                if (m_bulletType == BulletType.BLUE_BULLET)
+                {
+                    float maxSpread = 20.0f;
+                    float degreesBetweenBullets = 10;
+                    for (int i = 0; i < 5; i++)
+                    {
+                        Vector2 tempDir = CalculateTowerDirection(transform.rotation.eulerAngles.z - maxSpread + (i * degreesBetweenBullets ));
+                        BulletManager.Instance().FireBullet(m_bulletSpawn.position, tempDir, m_bulletType, m_bulletRange);
+
+                    }
+                }
+                else
+                {
+                    BulletManager.Instance().FireBullet(m_bulletSpawn.position, m_vDirection, m_bulletType, m_bulletRange);
+                }
             }
         }
     }
 
-    public Vector2 CalculateTowerDirection()
+    public Vector2 CalculateTowerDirection(float rotation)
     {
-        float zRotation = transform.rotation.eulerAngles.z;
-        return new Vector2(Mathf.Cos(zRotation * Mathf.Deg2Rad), Mathf.Sin(zRotation * Mathf.Deg2Rad));
+        return new Vector2(Mathf.Cos(rotation * Mathf.Deg2Rad), Mathf.Sin(rotation * Mathf.Deg2Rad));
     }
     
 }

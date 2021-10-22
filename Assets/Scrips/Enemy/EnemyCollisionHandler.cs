@@ -51,12 +51,12 @@ public class EnemyCollisionHandler : MonoBehaviour
             if (coll.gameObject.GetComponent<BulletAttributes>())
             {
                 GetComponent<EnemyAttributes>().m_fCurrentHealth -= coll.gameObject.GetComponent<BulletAttributes>().m_fBulletDamage;
+                BulletManager.Instance().ReturnBullet(coll.gameObject, coll.gameObject.GetComponent<BulletAttributes>().m_bulletType);
                 if (GetComponent<EnemyAttributes>().m_fCurrentHealth <= 0.0f)
                 {
                     GetComponent<EnemyAttributes>().m_bIsAlive = false;
                     GetComponent<Animator>().SetFloat("Health", 0);
                 }
-                BulletManager.Instance().ReturnBullet(coll.gameObject, coll.gameObject.GetComponent<BulletAttributes>().m_bulletType);
             }
             else if (coll.gameObject.GetComponent<EarthAttributes>())
             {

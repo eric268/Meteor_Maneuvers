@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1884579681083006438}
   - component: {fileID: 1918046437346914754}
   - component: {fileID: 3475163014131042709}
+  - component: {fileID: -3626275480756282510}
   m_Layer: 0
   m_Name: PurpleBullet
   m_TagString: Untagged
@@ -103,3 +104,19 @@ MonoBehaviour:
   m_fDirection: {x: 0, y: 0, z: 0}
   m_bulletType: 1
   m_fBulletLifeTimeCounter: 0
+--- !u!58 &-3626275480756282510
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6488895280567125796}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.215

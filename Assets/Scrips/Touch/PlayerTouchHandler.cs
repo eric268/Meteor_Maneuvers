@@ -221,13 +221,14 @@ public class PlayerTouchHandler : MonoBehaviour
     void PlaceTower()
     {
         //Subtract the money from the game currency
-
+        m_Level1UICanvas.GetComponent<Level1UI>().totalCash -= m_createdTower.GetComponent<TowerAttributes>().m_fTowerCost;
         m_createdTower.GetComponent<TowerAttributes>().m_bIsActive = true;
         CreateRadiusCircleAroundTower();
         m_listOfTowersPlaced.Add(m_createdTower.gameObject);
         m_createdTower = null;
         towersPlaced++;
         m_bTowerCanBePlaced = false;
+        
     }
 
     void CreateRadiusCircleAroundTower()

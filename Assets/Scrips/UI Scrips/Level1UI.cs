@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Level1UI : MonoBehaviour
 {
+    public EnemySpawner m_enemySpawnerRef;
+
     public float totalCash = 450;
     public float totalHealth = 100;
 
@@ -13,7 +15,7 @@ public class Level1UI : MonoBehaviour
     public TextMeshProUGUI m_iHealthDisplayText;
 
     [SerializeField]
-    public TextMeshProUGUI m_currencyRemainingText;
+    public TextMeshProUGUI m_cashRemainingText;
 
     [SerializeField]
     public GameObject m_earthRef;
@@ -43,9 +45,12 @@ public class Level1UI : MonoBehaviour
         m_fFundsTextCounter = 0.0f;
         m_fTimeToDisplayFundWarning = 3.5f;
         m_notEnoughFundsText.enabled = false;
+
+        m_enemySpawnerRef = FindObjectOfType<EnemySpawner>();
     }
     private void Update()
     {
+        m_cashRemainingText.text = totalCash.ToString();
         if(m_bDisplayNotEnoughFundsText)
         {
             DisplayInsufficientFundsText();
@@ -55,13 +60,16 @@ public class Level1UI : MonoBehaviour
         {
             totalHealth = m_earthRef.GetComponent<EarthAttributes>().m_iHealthRemaining;
             m_iHealthDisplayText.text = totalHealth.ToString();
+            if (totalHealth <= 0)
+            {
+                SceneManager.LoadScene("GameOver");
+            }
         }
-
     }
 
     public void OnStartPressed()
     {
-        SceneManager.LoadScene("GameOver");
+        m_enemySpawnerRef.m_fStartLevel = true;
     }
     public void PauseMenuPressed()
     {

@@ -24,10 +24,10 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EnemyManager.Instance().SetSpawnLocation(gameObject.transform.position);
         m_fGreenEnemySpawnCounter = 0.0f;
         m_fOrangeEnemySpawnCounter = 0.0f;
         m_fPurpleEnemySpawnCounter = 0.0f;
+        m_fStartLevel = false;
     }
 
     // Update is called once per frame

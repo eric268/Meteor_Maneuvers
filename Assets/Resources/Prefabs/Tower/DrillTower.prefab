@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 3124762940331784896}
   - component: {fileID: 5862792853177498461}
   - component: {fileID: 2428854671361064292}
+  - component: {fileID: 5703892511884222099}
   m_Layer: 0
   m_Name: DrillTower
   m_TagString: Untagged
@@ -163,3 +164,20 @@ MonoBehaviour:
   m_fFiringCounter: 0
   m_fTowerCost: 250
   m_bIsActive: 0
+--- !u!114 &5703892511884222099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9118667872288070889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a654a822c23cf44a8f824238aadceeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpawnTime: 1.5
+  maxSpawnTime: 5
+  m_goldNuggetPrefab: {fileID: 4910051065334359023, guid: cd446e7105ddf904e80b626b7c696c19, type: 3}
+  m_fMinSpawnRange: 1.5
+  m_fMaxSpawnRange: 3

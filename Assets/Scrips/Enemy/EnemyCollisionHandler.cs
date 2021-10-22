@@ -55,7 +55,8 @@ public class EnemyCollisionHandler : MonoBehaviour
                 {
                     GetComponent<EnemyAttributes>().m_bIsAlive = false;
                     GetComponent<Animator>().SetFloat("Health", 0);
-                    Level1UI.totalCash += GetComponent<EnemyAttributes>().m_fCashWhenDestroyed;
+                    Level1UI.m_fTotalCash += GetComponent<EnemyAttributes>().m_fCashWhenDestroyed;
+                    Level1UI.m_fTotalScore += GetComponent<EnemyAttributes>().m_fCashWhenDestroyed;
                 }
             }
             else if (coll.gameObject.GetComponent<EarthAttributes>())

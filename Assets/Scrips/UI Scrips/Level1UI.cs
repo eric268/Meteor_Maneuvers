@@ -8,8 +8,9 @@ public class Level1UI : MonoBehaviour
 {
     public EnemySpawner m_enemySpawnerRef;
 
-    public static float totalCash = 450;
-    public float totalHealth = 100;
+    public static float m_fTotalCash = 450;
+    public float m_fTotalHealth = 100;
+    public static float m_fTotalScore = 0;
 
     [SerializeField]
     public TextMeshProUGUI m_GreenTowerAlredyPlaced;
@@ -57,7 +58,7 @@ public class Level1UI : MonoBehaviour
     }
     private void Update()
     {
-        m_cashRemainingText.text = totalCash.ToString();
+        m_cashRemainingText.text = m_fTotalCash.ToString();
 
         if (m_bDisplayOnlyOneGreenTower)
         {
@@ -69,11 +70,11 @@ public class Level1UI : MonoBehaviour
         }
         
 
-        if (totalHealth != m_earthRef.GetComponent<EarthAttributes>().m_iHealthRemaining)
+        if (m_fTotalHealth != m_earthRef.GetComponent<EarthAttributes>().m_iHealthRemaining)
         {
-            totalHealth = m_earthRef.GetComponent<EarthAttributes>().m_iHealthRemaining;
-            m_iHealthDisplayText.text = totalHealth.ToString();
-            if (totalHealth <= 0)
+            m_fTotalHealth = m_earthRef.GetComponent<EarthAttributes>().m_iHealthRemaining;
+            m_iHealthDisplayText.text = m_fTotalHealth.ToString();
+            if (m_fTotalHealth <= 0)
             {
                 SceneManager.LoadScene("GameOver");
             }

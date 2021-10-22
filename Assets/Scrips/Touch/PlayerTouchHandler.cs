@@ -175,7 +175,7 @@ public class PlayerTouchHandler : MonoBehaviour
     {
         if (CheckForTowerBannerSelected(startTouchPos))
         {
-          if (Level1UI.totalCash >= m_currentSelectedGameObject.GetComponent<BannerAttributes>().towerCost)
+          if (m_currentSelectedGameObject != null && Level1UI.m_fTotalCash >= m_currentSelectedGameObject.GetComponent<BannerAttributes>().towerCost)
           {
               m_redXButton.SetActive(true);
               return true;
@@ -191,52 +191,79 @@ public class PlayerTouchHandler : MonoBehaviour
 
     void CheckIfTowerSuccessfullPlaced()
     {
+        int numBannerTowers = 5;
+        bool onMeteor = false;
+        bool collidingWithOtherTower = false;
+        bool collidingWithBannerTowers = false;
+        int arraySize = m_meteorsWithColliders.Length + towersPlaced + numBannerTowers + 1;
+
         if (m_createdTower != null)
         {
             if (m_createdTower.GetComponent<TowerAttributes>().m_towerType == TowerType.GREEN_TOWER)
             {
-                m_bTowerCanBePlaced = true;
-                m_createdTower.GetComponent<SpriteRenderer>().color = new Color(255.0f, 255.0f, 255.0f, 255.0f);
-                return;
-            }
+                Collider2D[] colliderArray = new Collider2D[arraySize];
 
-            int numBannerTowers = 5;
-            int arraySize = m_meteorsWithColliders.Length + towersPlaced + numBannerTowers + 1;
-            bool onMeteor = false;
-            bool collidingWithOtherTower = false;
-            bool collidingWithBannerTowers = false;
-            Collider2D[] colliderArray = new Collider2D[arraySize];
+                m_createdTower.GetComponent<Collider2D>().OverlapCollider(new ContactFilter2D(), colliderArray);
 
-            m_createdTower.GetComponent<Collider2D>().OverlapCollider(new ContactFilter2D(), colliderArray);
-
-            for (int i = 0; i < arraySize; i++)
-            {
-                if (colliderArray[i] != null)
+                for (int i = 0; i < arraySize; i++)
                 {
-                    if (colliderArray[i].gameObject.name == "Meteor")
+                    if (colliderArray[i] != null)
                     {
-                        onMeteor = true;
-                    }
-                    else if (colliderArray[i].GetComponent<TowerAttributes>())
-                    {
-                        Debug.Log(colliderArray[i].gameObject.name);
-                        collidingWithOtherTower = true;
-                    }
-                    else if (colliderArray[i].GetComponent<BannerAttributes>())
-                    {
-                        collidingWithBannerTowers = true;
+                        if (colliderArray[i].GetComponent<BannerAttributes>())
+                        {
+                            collidingWithBannerTowers = true;
+                        }
                     }
                 }
-            }
-            if (onMeteor && !collidingWithOtherTower && !collidingWithBannerTowers)
-            {
-                m_createdTower.GetComponent<SpriteRenderer>().color = new Color(255.0f, 255.0f, 255.0f, 255.0f);
-                m_bTowerCanBePlaced = true;
+                if (!collidingWithBannerTowers)
+                {
+                    m_createdTower.GetComponent<SpriteRenderer>().color = new Color(255.0f, 255.0f, 255.0f, 255.0f);
+                    m_bTowerCanBePlaced = true;
+                }
+                else
+                {
+                    m_createdTower.GetComponent<SpriteRenderer>().color = new Color(255.0f, 0.0f, 0.0f, 255.0f);
+                    m_bTowerCanBePlaced = false;
+                }
+                return;
             }
             else
             {
-                m_createdTower.GetComponent<SpriteRenderer>().color = new Color(255.0f, 0.0f, 0.0f, 255.0f);
-                m_bTowerCanBePlaced = false;
+
+                
+                Collider2D[] colliderArray = new Collider2D[arraySize];
+
+                m_createdTower.GetComponent<Collider2D>().OverlapCollider(new ContactFilter2D(), colliderArray);
+
+                for (int i = 0; i < arraySize; i++)
+                {
+                    if (colliderArray[i] != null)
+                    {
+                        if (colliderArray[i].gameObject.name == "Meteor")
+                        {
+                            onMeteor = true;
+                        }
+                        else if (colliderArray[i].GetComponent<TowerAttributes>())
+                        {
+                            Debug.Log(colliderArray[i].gameObject.name);
+                            collidingWithOtherTower = true;
+                        }
+                        else if (colliderArray[i].GetComponent<BannerAttributes>())
+                        {
+                            collidingWithBannerTowers = true;
+                        }
+                    }
+                }
+                if (onMeteor && !collidingWithOtherTower && !collidingWithBannerTowers)
+                {
+                    m_createdTower.GetComponent<SpriteRenderer>().color = new Color(255.0f, 255.0f, 255.0f, 255.0f);
+                    m_bTowerCanBePlaced = true;
+                }
+                else
+                {
+                    m_createdTower.GetComponent<SpriteRenderer>().color = new Color(255.0f, 0.0f, 0.0f, 255.0f);
+                    m_bTowerCanBePlaced = false;
+                }
             }
         }
     }
@@ -244,7 +271,7 @@ public class PlayerTouchHandler : MonoBehaviour
     void PlaceTower()
     {
         //Subtract the money from the game currency
-        Level1UI.totalCash -= m_createdTower.GetComponent<TowerAttributes>().m_fTowerCost;
+        Level1UI.m_fTotalCash -= m_createdTower.GetComponent<TowerAttributes>().m_fTowerCost;
         m_createdTower.GetComponent<TowerAttributes>().m_bIsActive = true;
         CreateRadiusCircleAroundTower();
         CreateColliderAroundTower();

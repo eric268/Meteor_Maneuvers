@@ -49,7 +49,7 @@ public class GreenPlayerController : MonoBehaviour
                     {
                         if (m_bSelected)
                         {
-                            m_vTargetPosition = touchedPosition;
+                            m_vTargetPosition = new Vector3(touchedPosition.x, touchedPosition.y, 0.0f);
                             GetComponent<SpriteRenderer>().enabled = false;
                             m_bSelected = false;
                         }
@@ -65,8 +65,6 @@ public class GreenPlayerController : MonoBehaviour
             MoveShip(m_vTargetPosition);
         }
         CheckCollisions();
-
-
     }
 
     void RotateShip(Vector3 touchedPos)
@@ -98,7 +96,8 @@ public class GreenPlayerController : MonoBehaviour
                 if (coll.gameObject.GetComponent<EnemyAttributes>().m_enemyType != EnemyType.PURPLE_ENEMY)
                 {
                     Destroy(transform.parent.gameObject);
-                    Level1UI.totalCash += coll.gameObject.GetComponent<EnemyAttributes>().m_fCashWhenDestroyed;
+                    Level1UI.m_fTotalCash += coll.gameObject.GetComponent<EnemyAttributes>().m_fCashWhenDestroyed;
+                    Level1UI.m_fTotalScore += coll.gameObject.GetComponent<EnemyAttributes>().m_fCashWhenDestroyed;
                 }
             }
         }

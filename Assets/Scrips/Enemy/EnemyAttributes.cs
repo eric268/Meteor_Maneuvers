@@ -15,6 +15,7 @@ public class EnemyAttributes : MonoBehaviour
     [SerializeField]
     public float m_fDeathAnimTime;
 
+    [SerializeField]
     private float m_fDeathAnimCounter;
 
     [SerializeField]
@@ -22,6 +23,7 @@ public class EnemyAttributes : MonoBehaviour
 
     public Quaternion m_fWantedRotation;
 
+    [SerializeField]
     public float m_fCashWhenDestroyed;
 
     public float m_fAngle;
@@ -35,6 +37,7 @@ public class EnemyAttributes : MonoBehaviour
     [SerializeField]
     public bool m_bIsAlive;
 
+    [SerializeField]
     public EnemyType m_enemyType;
 
     public float m_fDistanceTravelled;

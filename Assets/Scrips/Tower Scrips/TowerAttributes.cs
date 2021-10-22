@@ -16,6 +16,9 @@ public class TowerAttributes : MonoBehaviour
     public BulletType m_bulletType;
 
     [SerializeField]
+    public TowerType m_towerType;
+
+    [SerializeField]
     public float m_fFireRate;
 
     public float m_fFiringCounter;
@@ -36,7 +39,8 @@ public class TowerAttributes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        m_vDirection = MathHelper.CalculateDirection(transform.eulerAngles.z);
+        Debug.DrawLine(transform.position, m_vDirection * 5 + new Vector2(transform.position.x, transform.position.y));
     }
     
 }

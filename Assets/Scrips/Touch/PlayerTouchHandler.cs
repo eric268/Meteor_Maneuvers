@@ -11,6 +11,9 @@ public class PlayerTouchHandler : MonoBehaviour
     [SerializeField]
     public GameObject m_createdTower;
 
+    [SerializeField]
+    public GameObject m_greenPlayerRef;
+
     public bool m_bannerTowerSelected;
 
     public Vector3 m_touchStartPos;
@@ -43,6 +46,10 @@ public class PlayerTouchHandler : MonoBehaviour
     [SerializeField]
     public Sprite m_radiusImage;
 
+    public Sprite m_highlightImage;
+
+    static public bool m_bGreenPlayerPlaced;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +59,7 @@ public class PlayerTouchHandler : MonoBehaviour
         towersPlaced = 0;
         m_bTowerCanBePlaced = false;
         m_listOfTowersPlaced = new List<GameObject>();
-
+        m_bGreenPlayerPlaced = false;
     }
 
     // Update is called once per frame
@@ -120,7 +127,6 @@ public class PlayerTouchHandler : MonoBehaviour
                 m_currentSelectedGameObject.GetComponent<BannerAttributes>().m_highlightedBox.SetActive(false);
                 m_currentSelectedGameObject = null;
                 m_createdTower.GetComponent<SpriteRenderer>().color = new Color(255.0f, 0.0f,0.0f, 255.0f);
-                m_redXButton.SetActive(false);
             }
         }
     }
@@ -133,6 +139,17 @@ public class PlayerTouchHandler : MonoBehaviour
             if (tower.GetComponent<Collider2D>().OverlapPoint(startTouchPos))
             {
                 m_currentSelectedGameObject = tower.gameObject;
+                if (m_currentSelectedGameObject.GetComponent<BannerAttributes>().m_bannerTowerType == TowerType.GREEN_TOWER && m_bGreenPlayerPlaced == true)
+                {
+                    m_Level1UICanvas.GetComponent<Level1UI>().m_bDisplayOnlyOneGreenTower = true;
+                    m_currentSelectedGameObject = null;
+                    return true;
+                }
+                else if (m_currentSelectedGameObject == m_greenPlayerRef)
+                {
+                    m_currentSelectedGameObject = null;
+                    return false;
+                }
                 tower.GetComponent<BannerAttributes>().m_highlightedBox.SetActive(true);
                 return true;
             }
@@ -176,6 +193,13 @@ public class PlayerTouchHandler : MonoBehaviour
     {
         if (m_createdTower != null)
         {
+            if (m_createdTower.GetComponent<TowerAttributes>().m_towerType == TowerType.GREEN_TOWER)
+            {
+                m_bTowerCanBePlaced = true;
+                m_createdTower.GetComponent<SpriteRenderer>().color = new Color(255.0f, 255.0f, 255.0f, 255.0f);
+                return;
+            }
+
             int numBannerTowers = 5;
             int arraySize = m_meteorsWithColliders.Length + towersPlaced + numBannerTowers + 1;
             bool onMeteor = false;
@@ -204,7 +228,6 @@ public class PlayerTouchHandler : MonoBehaviour
                     }
                 }
             }
-
             if (onMeteor && !collidingWithOtherTower && !collidingWithBannerTowers)
             {
                 m_createdTower.GetComponent<SpriteRenderer>().color = new Color(255.0f, 255.0f, 255.0f, 255.0f);
@@ -225,11 +248,16 @@ public class PlayerTouchHandler : MonoBehaviour
         m_createdTower.GetComponent<TowerAttributes>().m_bIsActive = true;
         CreateRadiusCircleAroundTower();
         CreateColliderAroundTower();
+        if (m_createdTower.GetComponent<TowerAttributes>().m_towerType == TowerType.GREEN_TOWER)
+        {
+            CreateGreenPlayerTower();
+        }
+
         m_listOfTowersPlaced.Add(m_createdTower.gameObject);
         m_createdTower = null;
         towersPlaced++;
         m_bTowerCanBePlaced = false;
-        
+        m_redXButton.SetActive(false);
     }
 
     void CreateColliderAroundTower()
@@ -271,5 +299,22 @@ public class PlayerTouchHandler : MonoBehaviour
                 m_currentSelectedGameObject.GetComponent<BannerAttributes>().m_highlightedBox.SetActive(false);
             }
         }
+    }
+
+    void CreateGreenPlayerTower()
+    {
+        m_bGreenPlayerPlaced = true;
+        m_greenPlayerRef = m_createdTower;
+        GameObject temp = new GameObject();
+        temp.name = "boarderHighlight";
+        temp.AddComponent<SpriteRenderer>();
+        temp.GetComponent<SpriteRenderer>().sprite = m_highlightImage;
+        temp.GetComponent<SpriteRenderer>().sortingOrder = 8;
+        temp.GetComponent<SpriteRenderer>().enabled = false;
+        temp.AddComponent<GreenPlayerController>();
+        temp.transform.localScale = new Vector3(0.5f, 0.5f, 1.0f);
+        
+        temp.transform.SetParent(m_createdTower.transform);
+        temp.transform.localPosition = new Vector3(0, 0, 1);
     }
 }

@@ -64,10 +64,6 @@ public class EnemyCollisionHandler : MonoBehaviour
                 GetComponent<EnemyAttributes>().m_bIsAlive = false;
                 GetComponent<Animator>().SetFloat("Health", 0);
             }
-            else
-            {
-                //For now this is the green ship
-            }
         }
     }
 }

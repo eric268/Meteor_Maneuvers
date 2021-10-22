@@ -11,6 +11,8 @@ public class Level1UI : MonoBehaviour
     public static float totalCash = 450;
     public float totalHealth = 100;
 
+    [SerializeField]
+    public TextMeshProUGUI m_GreenTowerAlredyPlaced;
 
     [SerializeField]
     public TextMeshProUGUI m_iHealthDisplayText;
@@ -35,9 +37,13 @@ public class Level1UI : MonoBehaviour
     public TextMeshProUGUI m_notEnoughFundsText;
 
     private float m_fFundsTextCounter;
+    private float m_fGreenTextCounter;
     private float m_fTimeToDisplayFundWarning;
 
     public bool m_bDisplayNotEnoughFundsText;
+
+    [SerializeField]
+    public bool m_bDisplayOnlyOneGreenTower;
     // Start is called before the first frame update
     private void Start()
     {
@@ -46,14 +52,22 @@ public class Level1UI : MonoBehaviour
         m_fFundsTextCounter = 0.0f;
         m_fTimeToDisplayFundWarning = 3.5f;
         m_notEnoughFundsText.enabled = false;
+        m_GreenTowerAlredyPlaced.enabled = false;
+
     }
     private void Update()
     {
         m_cashRemainingText.text = totalCash.ToString();
-        if(m_bDisplayNotEnoughFundsText)
+
+        if (m_bDisplayOnlyOneGreenTower)
+        {
+            DisplayGreenTowerAlreadyPlacedText();
+        }
+        else if(m_bDisplayNotEnoughFundsText)
         {
             DisplayInsufficientFundsText();
         }
+        
 
         if (totalHealth != m_earthRef.GetComponent<EarthAttributes>().m_iHealthRemaining)
         {
@@ -106,6 +120,10 @@ public class Level1UI : MonoBehaviour
     }
     private void DisplayInsufficientFundsText()
     {
+        m_GreenTowerAlredyPlaced.enabled = false;
+        m_fGreenTextCounter = 0;
+        m_bDisplayOnlyOneGreenTower = false;
+
         m_notEnoughFundsText.enabled = true;
         Debug.Log(m_fFundsTextCounter);
         m_fFundsTextCounter += Time.deltaTime;
@@ -115,6 +133,22 @@ public class Level1UI : MonoBehaviour
             m_bDisplayNotEnoughFundsText = false;
             m_notEnoughFundsText.enabled = false;
             m_fFundsTextCounter = 0.0f;
+        }
+    }
+    private void DisplayGreenTowerAlreadyPlacedText()
+    {
+        m_bDisplayNotEnoughFundsText = false;
+        m_notEnoughFundsText.enabled = false;
+        m_fFundsTextCounter = 0;
+
+        m_GreenTowerAlredyPlaced.enabled = true;
+        m_fGreenTextCounter += Time.deltaTime;
+
+        if (m_fGreenTextCounter >= m_fTimeToDisplayFundWarning)
+        {
+            m_bDisplayOnlyOneGreenTower = false;
+            m_GreenTowerAlredyPlaced.enabled = false;
+            m_fGreenTextCounter = 0.0f;
         }
     }
 }

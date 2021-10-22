@@ -8,6 +8,9 @@ public class BannerAttributes : MonoBehaviour
     public int towerCost;
 
     [SerializeField]
+    public TowerType m_bannerTowerType;
+
+    [SerializeField]
     public GameObject towerPrefab;
 
     [SerializeField]

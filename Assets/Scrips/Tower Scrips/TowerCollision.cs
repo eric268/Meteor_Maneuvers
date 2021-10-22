@@ -15,7 +15,7 @@ public class TowerCollision : MonoBehaviour
     void Start()
     {
         m_parent = transform.parent.gameObject;
-        m_fRotationSpeed = 0.8f;
+        m_fRotationSpeed = 0.7f;
         m_fFiringCounter = 0.0f;
         m_wantedRotation = Quaternion.Euler(0, 0, 0);
         
@@ -26,16 +26,15 @@ public class TowerCollision : MonoBehaviour
     {
         if (EnemySpawner.m_fStartLevel)
         {
-            
-            m_fFiringCounter += Time.deltaTime;
             m_targetEnemy = FindTarget();
             if (m_targetEnemy != null)
             {
+                m_fFiringCounter += Time.deltaTime;
                 RotateTower(m_targetEnemy);
                 ShootBullet();
             }
         }
-        m_parent.transform.rotation = m_wantedRotation;//Quaternion.Slerp(transform.rotation, m_wantedRotation, m_fRotationSpeed);
+        //m_parent.transform.rotation = m_wantedRotation;//Quaternion.Slerp(transform.rotation, m_wantedRotation, m_fRotationSpeed);
     }
 
     GameObject FindTarget()
@@ -63,18 +62,12 @@ public class TowerCollision : MonoBehaviour
         
         if (targetEnemy.GetComponent<EnemyAttributes>())
         {
-            m_parent.GetComponent<TowerAttributes>().m_vDirection = MathHelper.CalculateDirection(m_parent.transform.eulerAngles.z);
+            //m_parent.GetComponent<TowerAttributes>().m_vDirection = MathHelper.CalculateDirection(m_parent.transform.eulerAngles.z);
             Vector2 m_vDesiredDirection = new Vector2(targetEnemy.transform.position.x - m_parent.transform.position.x, targetEnemy.transform.position.y - m_parent.transform.position.y);
-            
             m_vDesiredDirection = m_vDesiredDirection.normalized;
-
-            Debug.DrawLine(m_parent.transform.position,m_parent.GetComponent<TowerAttributes>().m_vDirection * 5);
-
             float desiredRotation = MathHelper.CalculateAngle(m_parent.GetComponent<TowerAttributes>().m_vDirection, m_vDesiredDirection) + m_parent.transform.eulerAngles.z;
-
             m_wantedRotation = Quaternion.Euler(0, 0, desiredRotation);
-            m_parent.transform.rotation = m_wantedRotation;
-
+            m_parent.transform.rotation =Quaternion.Slerp(m_parent.transform.rotation, m_wantedRotation, m_fRotationSpeed);
             m_bWithinRange = true;
         }
         else
@@ -98,7 +91,6 @@ public class TowerCollision : MonoBehaviour
                         Vector2 tempDir = MathHelper.CalculateDirection(transform.rotation.eulerAngles.z - maxSpread + (i * degreesBetweenBullets));
                         BulletManager.Instance().FireBullet(m_parent.GetComponent<TowerAttributes>().m_bulletSpawn.position, tempDir,
                             m_parent.GetComponent<TowerAttributes>().m_bulletType, m_parent.GetComponent<TowerAttributes>().m_bulletRange);
-
                     }
                 }
                 else

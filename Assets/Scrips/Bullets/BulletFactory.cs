@@ -1,7 +1,18 @@
+//--------------------------------------------------------------------------------
+//------------------------------BulletFactory.cs----------------------------------
+//------------------------------Eric Galway---------------------------------------
+//------------------------------101252535-----------------------------------------
+//------------------------------Last Modified: 21/10/2021-------------------------
+//------------------------------Description---------------------------------------
+//             This script controls the creation of bullets from the
+//             appropriate prefab object.
+//------------------------------Revision History----------------------------------
+//------------------------------Version 1.0 - Add bullet create bullet functions--
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Class which contains functions and singleton for creating bullets
 [System.Serializable]
 public class BulletFactory
 {
@@ -14,11 +25,12 @@ public class BulletFactory
 
     private GameObject m_bulletController;
 
+    //Constructor
     private BulletFactory()
     {
         Initialize();
     }
-
+    //Gets bullet prefabs from resource folder
     private void Initialize()
     {
         m_greenBullet = Resources.Load("Prefabs/Bullets/GreenBullet") as GameObject; 
@@ -28,7 +40,7 @@ public class BulletFactory
         m_bulletController = GameObject.Find("BulletController");
     }
 
-
+    //Creates or returns singleton
     public static BulletFactory Instance()
     {
         if (m_instance == null)
@@ -38,7 +50,7 @@ public class BulletFactory
 
         return m_instance;
     }
-
+    //Creates a bullet from given type
     public GameObject createBullet(BulletType type)
     {
         GameObject temp_bullet = null;

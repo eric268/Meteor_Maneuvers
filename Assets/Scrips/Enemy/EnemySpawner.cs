@@ -1,8 +1,22 @@
+//--------------------------------------------------------------------------------
+//------------------------------EnemySpawner.cs-----------------------------------
+//------------------------------Eric Galway---------------------------------------
+//------------------------------101252535-----------------------------------------
+//------------------------------Last Modified: 22/10/2021-------------------------
+//------------------------------Description---------------------------------------
+//             This script controls the spawning of all enemies. This is based
+//             off of a total enemy number as well as a spawn rate. If no
+//             health or enemies remain the game over scene is loaded.
+//------------------------------Revision History----------------------------------
+//------------------------------Version 1.3 - Loads game over if no remaining health or enemies
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 [System.Serializable]
+
+//Class that houses necessary variables for enemy spawning patterns
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Number of Enemies")]
@@ -48,19 +62,22 @@ public class EnemySpawner : MonoBehaviour
 
             if (m_fNumGreenEnemiesToSpawn == 0 && m_fNumOrangeEnemiesToSpawn == 0 && m_fNumPurpleEnemiesToSpawn == 0)
             {
-                if (m_fNumActiveEnemeis ==0)
+                //Static value which is changed based upon enemeis being created or destroyed
+                if (m_fNumActiveEnemeis == 0)
                 {
                     m_fStartLevel = false;
+                    //Saves game data using player pref for game over scene
                     PlayerPrefs.SetFloat("HealthRemaining", m_earth.GetComponent<EarthAttributes>().m_iHealthRemaining);
                     PlayerPrefs.SetFloat("ScoreRemaining", Level1UI.m_fTotalScore);
                     PlayerPrefs.SetInt("Saved", 1);
                     PlayerPrefs.Save();
+
                     SceneManager.LoadScene("GameOver");
                 }
             }
         }
     }
-
+    //Function that spawns enemy if criteria are met
     void CheckIfShouldSpawnEnemy(float deltaTime, ref float numEnemiesLeftToSpawn, float spawnTimer, ref float spawnCounter, EnemyType type)
     {
         if (numEnemiesLeftToSpawn > 0)

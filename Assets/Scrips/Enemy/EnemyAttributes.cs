@@ -1,7 +1,19 @@
+//--------------------------------------------------------------------------------
+//------------------------------EnemyAttributes.cs--------------------------------
+//------------------------------Eric Galway---------------------------------------
+//------------------------------101252535-----------------------------------------
+//------------------------------Last Modified: 21/10/2021-------------------------
+//------------------------------Description---------------------------------------
+//             This script controls the attributes for all enemies. It also
+//             moves and rotates the enemy. If the enemy dies it stops moving
+//             while the animation plays.
+//------------------------------Revision History----------------------------------
+//------------------------------Version 1.2 - Added pause for death animation-----
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Class that controls all enemy movement
 public class EnemyAttributes : MonoBehaviour
 {
 
@@ -55,15 +67,20 @@ public class EnemyAttributes : MonoBehaviour
     {
         if (m_bIsAlive)
         {
+            //Moves enemy
             transform.position += (m_vDirection * m_fMovementSpeed)*Time.deltaTime;
+
+            //Gets total distance travelled which is used for tower targeting.
             m_fDistanceTravelled += m_fMovementSpeed * Time.deltaTime;
+            //Rotation enemy should have based upon direction
             m_fWantedRotation = Quaternion.Euler(new Vector3(0f, 0f, m_fAngle));
+            //Rotates enemy
             transform.rotation = Quaternion.Slerp(transform.rotation, m_fWantedRotation, m_fRotationSpeed);
         }
         else
         {
-            
             m_fDeathAnimCounter += Time.deltaTime;
+            //Checks if enemy death animation is over.
             if (m_fDeathAnimCounter >= m_fDeathAnimTime)
             {
                 m_fDeathAnimCounter = 0;

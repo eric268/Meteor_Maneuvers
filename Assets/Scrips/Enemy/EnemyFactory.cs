@@ -1,7 +1,18 @@
+//--------------------------------------------------------------------------------
+//------------------------------EnemyFactory.cs-----------------------------------
+//------------------------------Eric Galway---------------------------------------
+//------------------------------101252535-----------------------------------------
+//------------------------------Last Modified: 21/10/2021-------------------------
+//------------------------------Description---------------------------------------
+//             This script controls the creation of all enemies.  
+//------------------------------Revision History----------------------------------
+//------------------------------Version 1.0 - Added createEnemy function----------
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Class that handles enemy creation and singleton
 [System.Serializable]
 public class EnemyFactory
 {
@@ -18,7 +29,7 @@ public class EnemyFactory
     {
         Initialize();
     }
-
+    //Sets enemies to appropriate enemy prefab
     private void Initialize()
     {
         m_greenEnemy = Resources.Load("Prefabs/Enemy/Green Enemy") as GameObject;
@@ -27,7 +38,7 @@ public class EnemyFactory
         m_enemyController = GameObject.Find("EnemyController");
     }
 
-
+    //Gets or initializes singleton 
     public static EnemyFactory Instance()
     {
         if (m_instance == null)
@@ -37,7 +48,7 @@ public class EnemyFactory
 
         return m_instance;
     }
-
+    //Creates enemy given type
     public GameObject createEnemy(EnemyType type)
     {
         GameObject temp_enemy = null;

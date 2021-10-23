@@ -1,7 +1,19 @@
+//--------------------------------------------------------------------------------
+//------------------------------TowerAttributes.cs--------------------------------
+//------------------------------Eric Galway---------------------------------------
+//------------------------------101252535-----------------------------------------
+//------------------------------Last Modified: 21/10/2021-------------------------
+//------------------------------Description---------------------------------------
+//             This script manages the attributes bounds checking, and 
+//             and direction updating of all enemy ship
+//------------------------------Revision History----------------------------------
+//------------------------------Version 1.4 - Updated scene bounds
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Class that encapsulates all tower attribute variables
 public class TowerAttributes : MonoBehaviour
 {
     public Vector2 m_vDirection;
@@ -49,11 +61,11 @@ public class TowerAttributes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Updates direction based upon tower rotation
         m_vDirection = MathHelper.CalculateDirection(transform.eulerAngles.z);
         CheckBounds();
-        Debug.DrawLine(transform.position, m_vDirection * 5 + new Vector2(transform.position.x, transform.position.y));
     }
-    
+    //Ensures that towers are placed correctly in the screen and can not leave the scene
     void CheckBounds()
     {
         if (transform.position.x > xBounds)

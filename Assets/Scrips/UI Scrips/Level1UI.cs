@@ -1,9 +1,21 @@
+//--------------------------------------------------------------------------------
+//------------------------------Level1UI.cs---------------------------------
+//------------------------------Eric Galway---------------------------------------
+//------------------------------101252535-----------------------------------------
+//------------------------------Last Modified: 21/10/2021-------------------------
+//------------------------------Description---------------------------------------
+//             Contains variables, text, and buttons that are used in
+//             display of the Level 1 game scene.
+//------------------------------Revision History----------------------------------
+//------------------------------Version 1.3 - Added display for green player already placed text
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine;
 
+//Class that encapsulates all level 1 buttons, text, variables and general UI elements
 public class Level1UI : MonoBehaviour
 {
     public EnemySpawner m_enemySpawnerRef;
@@ -128,17 +140,19 @@ public class Level1UI : MonoBehaviour
     }
     #endregion<PauseMenu>
 
+    //This button deselects the current tower that is trying to be placed in the scene
     public void OnXButtonPressed()
     {
         SoundEffectManager.PlaySoundEffect("ButtonPressed");
         if (m_playerTouchHandler.m_currentSelectedGameObject != null)
         {
-            m_playerTouchHandler.m_currentSelectedGameObject.GetComponent<BannerAttributes>().m_highlightedBox.SetActive(false);
+            m_playerTouchHandler.m_currentSelectedGameObject.GetComponent<BannerAttributes>().m_bTowerCost.SetActive(false);
             m_playerTouchHandler.m_currentSelectedGameObject = null;
         }
         Destroy(m_playerTouchHandler.m_createdTower);
         m_redXButton.SetActive(false);
     }
+    //Displays text that player does not have sufficient funds to purchase tower
     private void DisplayInsufficientFundsText()
     {
         m_GreenTowerAlredyPlaced.enabled = false;
@@ -156,6 +170,7 @@ public class Level1UI : MonoBehaviour
             m_fFundsTextCounter = 0.0f;
         }
     }
+    //Displays text that the green player ship already exists in the scene (only one can be made at a time)
     private void DisplayGreenTowerAlreadyPlacedText()
     {
         m_bDisplayNotEnoughFundsText = false;

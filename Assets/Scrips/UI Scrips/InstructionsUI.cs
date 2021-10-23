@@ -1,3 +1,14 @@
+//--------------------------------------------------------------------------------
+//------------------------------InstructionsUI.cs---------------------------------
+//------------------------------Eric Galway---------------------------------------
+//------------------------------101252535-----------------------------------------
+//------------------------------Last Modified: 22/10/2021-------------------------
+//------------------------------Description---------------------------------------
+//             Contains variables, text, and buttons that are used in
+//             display of the instructions menu scene.
+//------------------------------Revision History----------------------------------
+//------------------------------Version 1.4 - Added sound effects-----------------
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
@@ -5,6 +16,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Class that manages access and houses information to all instructions menus
 public class InstructionsUI : MonoBehaviour
 {
     [SerializeField]
@@ -46,12 +58,14 @@ public class InstructionsUI : MonoBehaviour
         DisableAllEnemyText();
     }
     #region<GameObjective>
+    //Next button pressed
     public void OnPage1NextPressed()
     {
         SoundEffectManager.PlaySoundEffect("ButtonPressed");
         mainCanvas.enabled = false;
         secondCanvas.enabled = true;
     }
+    //Next button pressed on page two
     public void OnPage2NextPressed()
     {
         SoundEffectManager.PlaySoundEffect("ButtonPressed");
@@ -59,7 +73,7 @@ public class InstructionsUI : MonoBehaviour
         secondCanvas.enabled = false;
         thirdCanvas.enabled = true;
     }
-
+    //Previous button pressed on page 2
     public void OnPage2PreviousPressed()
     {
         SoundEffectManager.PlaySoundEffect("ButtonPressed");
@@ -67,7 +81,7 @@ public class InstructionsUI : MonoBehaviour
         secondCanvas.enabled = false;
         mainCanvas.enabled = true;
     }
-
+    //Previous button pressed on page 3
     public void OnPage3PreviousPressed()
     {
         SoundEffectManager.PlaySoundEffect("ButtonPressed");
@@ -75,7 +89,7 @@ public class InstructionsUI : MonoBehaviour
         thirdCanvas.enabled = false;
         secondCanvas.enabled = true;
     }
-
+    //Return to main menu button pressed
     public void OnReturnToMainMenuPressed()
     {
         SoundEffectManager.PlaySoundEffect("ButtonPressed");
@@ -93,31 +107,31 @@ public class InstructionsUI : MonoBehaviour
         m_DrillTowerText.enabled = false;
         m_goldImage.enabled = false;
     }
-
+    // green tower button pressed
     public void OnPlayerTowerPressed()
     {
         SoundEffectManager.PlaySoundEffect("ButtonPressed");
         m_PlayerTowerText.enabled = !m_PlayerTowerText.enabled;
     }
-
+    // purple tower button pressed
     public void OnPurpleTowerPressed()
     {
         SoundEffectManager.PlaySoundEffect("ButtonPressed");
         m_PurpleTowerText.enabled = !m_PurpleTowerText.enabled;
     }
-
+    // orange tower button pressed
     public void OnOrangeTowerPressed()
     {
         SoundEffectManager.PlaySoundEffect("ButtonPressed");
         m_OrangeTowerText.enabled = !m_OrangeTowerText.enabled;
     }
-
+    // blue tower button pressed
     public void OnBlueTowerPressed()
     {
         SoundEffectManager.PlaySoundEffect("ButtonPressed");
         m_BlueTowerText.enabled = !m_BlueTowerText.enabled;
     }
-
+    // drill tower button pressed
     public void OnDrillPressed()
     {
         SoundEffectManager.PlaySoundEffect("ButtonPressed");
@@ -133,16 +147,19 @@ public class InstructionsUI : MonoBehaviour
         m_OrangeEnemyText.enabled = false;
         m_PurpleEnemyText.enabled = false;
     }
+    //Green enemy button pressed
     public void OnGreenEnemyPressed()
     {
         SoundEffectManager.PlaySoundEffect("ButtonPressed");
         m_GreenEnemyText.enabled = !m_GreenEnemyText.enabled;
     }
+    // Orange enemy button pressed
     public void OnOrangeEnemyPressed()
     {
         SoundEffectManager.PlaySoundEffect("ButtonPressed");
         m_OrangeEnemyText.enabled = !m_OrangeEnemyText.enabled;
     }
+    //Purple enemy button pressed
     public void OnPurpleEnemyPressed()
     {
         SoundEffectManager.PlaySoundEffect("ButtonPressed");

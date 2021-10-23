@@ -1,9 +1,21 @@
+//--------------------------------------------------------------------------------
+//------------------------------GameOverUI.cs-------------------------------------
+//------------------------------Eric Galway---------------------------------------
+//------------------------------101252535-----------------------------------------
+//------------------------------Last Modified: 22/10/2021-------------------------
+//------------------------------Description---------------------------------------
+//             Contains variables, text, and buttons that are used in
+//             display of the game game over scene.
+//------------------------------Revision History----------------------------------
+//------------------------------Version 1.3 - Added game over scoring system variables
+
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
+//Class that manages the game over scene functions to display text variables and buttons
 public class GameOverUI : MonoBehaviour
 {
     [SerializeField]
@@ -30,11 +42,16 @@ public class GameOverUI : MonoBehaviour
 
     private void Start()
     {
-        m_healthScoreMultiplier = 10.0f;
-        BackgroundSoundManager.PlayBackgroundMusic("MainMenuSound");
+        //Plays background music
+        BackgroundSoundManager.PlayBackgroundMusic("GameOverSound");
 
+        //Value used to score remaining health
+        m_healthScoreMultiplier = 10.0f;
+
+        //Checks if data has been saved regarding Level1 scoring values
         if (PlayerPrefs.GetInt("Saved") == 1)
         {
+            //Gets saved health and score
             m_fRemainingHealh = PlayerPrefs.GetFloat("HealthRemaining");
             m_score = PlayerPrefs.GetFloat("ScoreRemaining");
         }
@@ -45,6 +62,7 @@ public class GameOverUI : MonoBehaviour
             m_finalScore = 0;
             m_healthScore = 0;
         }
+        //Sets UI text to score values
         m_healthScore = (m_healthScoreMultiplier * m_fRemainingHealh);
         m_finalScore = m_score + m_healthScore;
         m_healthScoreMultiplierText.text = m_healthScoreMultiplier.ToString();
@@ -52,22 +70,21 @@ public class GameOverUI : MonoBehaviour
         m_scoreText.text = m_score.ToString();
         m_healthScoreText.text = m_healthScore.ToString();
         m_finalScoreText.text = m_finalScore.ToString();
-
-        BackgroundSoundManager.PlayBackgroundMusic("GameOverSound");
     }
+    //Button called when pause menu restart button is pressed
     public void OnRestartPressed()
     {
 
         SoundEffectManager.PlaySoundEffect("ButtonPressed");
         SceneManager.LoadScene("Level1");
     }
-
+    //Button called when main menu pause menu button is pressed
     public void OnMainMenuPressed()
     {
         SoundEffectManager.PlaySoundEffect("ButtonPressed");
         SceneManager.LoadScene("MainMenu");
     }
-
+    //Button called when the game over pause menu button is pressed
     public void OnQuitGamePressed()
     {
         SoundEffectManager.PlaySoundEffect("ButtonPressed");

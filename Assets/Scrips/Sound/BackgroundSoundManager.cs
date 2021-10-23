@@ -1,3 +1,14 @@
+//--------------------------------------------------------------------------------
+//------------------------------BackgroundSoundManager.cs--------------------------------
+//------------------------------Eric Galway---------------------------------------
+//------------------------------101252535-----------------------------------------
+//------------------------------Last Modified: 22/10/2021-------------------------
+//------------------------------Description---------------------------------------
+//             This script controls access to background music and
+//             adds ability to play said music.
+//------------------------------Revision History----------------------------------
+//------------------------------Version 1.0 - Added Earth health------------------
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,16 +27,15 @@ public class BackgroundSoundManager : MonoBehaviour
     void Start()
     {
         m_audioSource = GetComponent<AudioSource>();
+
+        //Loads background sounds from resource folder
         mainMenuBackground = Resources.Load("Sound/Background/MainMenuSound") as AudioClip;
         instructionsBackground = Resources.Load("Sound/Background/InstructionsSound") as AudioClip;
         level1Background = Resources.Load("Sound/Background/Level1Sound") as AudioClip;
         gameOverBackground = Resources.Load("Sound/Background/GameOverSound") as AudioClip;
-
-        Debug.Log(mainMenuBackground.name);
-
-
     }
 
+    //static function which checks the background sound is to be played
     public static void PlayBackgroundMusic(string name)
     {
         if (name == mainMenuBackground.name)
@@ -44,11 +54,6 @@ public class BackgroundSoundManager : MonoBehaviour
         {
             m_audioSource.PlayOneShot(gameOverBackground);
         }
-
-    }
-
-    public static void PlaySoundEffect(string name)
-    {
 
     }
 }

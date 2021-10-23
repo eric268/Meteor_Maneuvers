@@ -1309,7 +1309,7 @@ MonoBehaviour:
   towerCost: 250
   m_bannerTowerType: 1
   towerPrefab: {fileID: 6593068436893345406, guid: 5d4c1ebce85918c4188a969b8ac75b88, type: 3}
-  m_highlightedBox: {fileID: 534596882}
+  m_bTowerCost: {fileID: 534596882}
 --- !u!1 &254243212
 GameObject:
   m_ObjectHideFlags: 0
@@ -2005,7 +2005,7 @@ MonoBehaviour:
   towerCost: 400
   m_bannerTowerType: 2
   towerPrefab: {fileID: 3988202904845527501, guid: d4c3f43cf1522e14c94d112a2f588244, type: 3}
-  m_highlightedBox: {fileID: 1231564123}
+  m_bTowerCost: {fileID: 1231564123}
 --- !u!1 &425128711
 GameObject:
   m_ObjectHideFlags: 0
@@ -5463,12 +5463,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d2ed5dcd90d37b4e97c60eb392d3182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fNumGreenEnemiesToSpawn: 30
-  m_fNumOrangeEnemiesToSpawn: 10
-  m_fNumPurpleEnemiesToSpawn: 4
-  m_fGreenEnemySpawnTimer: 2
-  m_fOrangeEnemySpawnTimer: 5
-  m_fPurpleEnemySpawnTimer: 15
+  m_fNumGreenEnemiesToSpawn: 35
+  m_fNumOrangeEnemiesToSpawn: 12
+  m_fNumPurpleEnemiesToSpawn: 1
+  m_fGreenEnemySpawnTimer: 1.5
+  m_fOrangeEnemySpawnTimer: 4.5
+  m_fPurpleEnemySpawnTimer: 45
   m_fGreenEnemySpawnCounter: 0
   m_fOrangeEnemySpawnCounter: 0
   m_fPurpleEnemySpawnCounter: 0
@@ -7190,7 +7190,7 @@ MonoBehaviour:
   towerCost: 550
   m_bannerTowerType: 3
   towerPrefab: {fileID: 862462419328040165, guid: da016dcda74da7149a60333ce5b75be1, type: 3}
-  m_highlightedBox: {fileID: 1444324886}
+  m_bTowerCost: {fileID: 1444324886}
 --- !u!1 &1490745398
 GameObject:
   m_ObjectHideFlags: 0
@@ -9896,6 +9896,63 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.57, y: 0.44}
   m_EdgeRadius: 0
+--- !u!1001 &1890845314
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3286131491120030986, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286131491120030986, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.960134
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286131491120030986, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.2199702
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286131491120030986, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286131491120030986, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286131491120030986, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286131491120030986, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286131491120030986, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286131491120030986, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286131491120030986, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286131491120030986, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118667872288070889, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
+      propertyPath: m_Name
+      value: DrillTower
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
 --- !u!1 &1898065607
 GameObject:
   m_ObjectHideFlags: 0
@@ -10089,63 +10146,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.44, y: 0.52}
   m_EdgeRadius: 0
---- !u!1001 &1984141387
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3286131491120030986, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3286131491120030986, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.950914
-      objectReference: {fileID: 0}
-    - target: {fileID: 3286131491120030986, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.861644
-      objectReference: {fileID: 0}
-    - target: {fileID: 3286131491120030986, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3286131491120030986, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3286131491120030986, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3286131491120030986, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3286131491120030986, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3286131491120030986, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3286131491120030986, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3286131491120030986, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9118667872288070889, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
-      propertyPath: m_Name
-      value: DrillTower
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
 --- !u!1 &2017044015
 GameObject:
   m_ObjectHideFlags: 0
@@ -10490,7 +10490,7 @@ MonoBehaviour:
   towerCost: 300
   m_bannerTowerType: 0
   towerPrefab: {fileID: 5596629528284974361, guid: 1fd03bebf8a504b489a7ddab7bf0b267, type: 3}
-  m_highlightedBox: {fileID: 310836527}
+  m_bTowerCost: {fileID: 310836527}
 --- !u!1 &2076864898
 GameObject:
   m_ObjectHideFlags: 0
@@ -10733,7 +10733,7 @@ MonoBehaviour:
   towerCost: 250
   m_bannerTowerType: 4
   towerPrefab: {fileID: 9118667872288070889, guid: 5edba27c01beb1b44b4b55c558c53cb0, type: 3}
-  m_highlightedBox: {fileID: 50635000}
+  m_bTowerCost: {fileID: 50635000}
 --- !u!1 &2105672216
 GameObject:
   m_ObjectHideFlags: 0

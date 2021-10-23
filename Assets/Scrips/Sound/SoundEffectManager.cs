@@ -1,3 +1,13 @@
+//--------------------------------------------------------------------------------
+//------------------------------SoundEffectManager.cs--------------------------------
+//------------------------------Eric Galway---------------------------------------
+//------------------------------101252535-----------------------------------------
+//------------------------------Last Modified: 22/10/2021-------------------------
+//------------------------------Description---------------------------------------
+//             This script controls access to all sound effects  
+//------------------------------Revision History----------------------------------
+//------------------------------Version 1.0 - Added play sound effects function---
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,7 +34,7 @@ public class SoundEffectManager : MonoBehaviour
         buttonPressed = Resources.Load("Sound/Effects/ButtonPressed") as AudioClip;
     }
 
-    // Update is called once per frame
+    // Static function which plays a sound effect given a sound effect name
     public static void PlaySoundEffect(string name)
     {
         if (name == gameStarted.name)

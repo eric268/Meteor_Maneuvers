@@ -1,7 +1,19 @@
+//--------------------------------------------------------------------------------
+//------------------------------EnemyManager.cs-----------------------------------
+//------------------------------Eric Galway---------------------------------------
+//------------------------------101252535-----------------------------------------
+//------------------------------Last Modified: 21/10/2021-------------------------
+//------------------------------Description---------------------------------------
+//             This script controls activation and deactivation of enemies
+//             moving them to the correct location with correct attributes.
+//------------------------------Revision History----------------------------------
+//------------------------------Version 1.2 - Updates spawn/return enemy functions
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Class that manages all enemy activation and deactivation via a singleton
 [System.Serializable]
 public class EnemyManager
 {
@@ -9,11 +21,12 @@ public class EnemyManager
 
     public Vector3 m_vSpawnLocation;
 
+    //Constructor
     private EnemyManager()
     {
         Initalize();
     }
-
+    //Instantiates or returns singleton
     public static EnemyManager Instance()
     {
         if (instance == null)
@@ -23,15 +36,16 @@ public class EnemyManager
 
         return instance;
     }
-
+    //Call enemy factor to create a new enemy
     private void AddEnemy(EnemyType type)
     {
         var temp_enemy = EnemyFactory.Instance().createEnemy(type);
         enemyPools[(int)type].Enqueue(temp_enemy);
     }
-
+    //Container for all enemy object pools
     public List<Queue<GameObject>> enemyPools;
 
+    //Generate enemy object pools via a Queue
     private void Initalize()
     {
         enemyPools = new List<Queue<GameObject>>();
@@ -41,7 +55,7 @@ public class EnemyManager
             enemyPools.Add(new Queue<GameObject>());
         }
     }
-
+    //Generates or dequeues and enemy with correct attributes and position
     public GameObject SpawnEnemy(Vector2 spawnPosition, EnemyType type)
     {
         GameObject temp_enemy = null;
@@ -57,7 +71,7 @@ public class EnemyManager
         EnemySpawner.m_fNumActiveEnemeis++;
         return temp_enemy;
     }
-
+    //Deactivates enemy and returns it with correct position and attributes
     public void ReturnEnemy(GameObject returnedEnemy, EnemyType type)
     {
         returnedEnemy.transform.position = m_vSpawnLocation;
@@ -69,11 +83,5 @@ public class EnemyManager
         returnedEnemy.SetActive(false);
         EnemySpawner.m_fNumActiveEnemeis--;
         enemyPools[(int)type].Enqueue(returnedEnemy);
-    }
-
-    public void SetSpawnLocation(Vector3 spawnLoc)
-    {
-        //m_vSpawnLocation = spawnLoc;
-        //Debug.Log("SpawnLocation: " + m_vSpawnLocation);
     }
 }

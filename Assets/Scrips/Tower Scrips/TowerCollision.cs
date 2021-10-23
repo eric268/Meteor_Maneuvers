@@ -1,7 +1,20 @@
+//--------------------------------------------------------------------------------
+//------------------------------TowerCollision.cs---------------------------------
+//------------------------------Eric Galway---------------------------------------
+//------------------------------101252535-----------------------------------------
+//------------------------------Last Modified: 22/10/2021-------------------------
+//------------------------------Description---------------------------------------
+//             Manages the detection of enemies, targets the enemy
+//             closest to earth and the rotation of towers to face 
+//             allows it enemy target. Finally, fires at enemy if firing rate 
+//------------------------------Revision History----------------------------------
+//------------------------------Version 1.5 - Updated tower rotation using SLERP
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Class that manages tower rotation and interactions with enemy targets
 public class TowerCollision : MonoBehaviour
 {
     GameObject m_parent;
@@ -35,17 +48,20 @@ public class TowerCollision : MonoBehaviour
             }
         }
     }
-
+    //Detects collision within its radius. If enemies are detected uses the enemies distance traveled to find which is
+    //closest to Earth.
     GameObject FindTarget()
     {
         GameObject temp = null;
+        //Generates list to hold all collisions
         List<Collider2D> colliderList = new List<Collider2D>();
         GetComponent<Collider2D>().OverlapCollider(new ContactFilter2D(), colliderList);
-        Debug.Log(colliderList.Count);
+        //Sets value to check distance traveled to find largest value
         float highestDistanceTravelled = -Mathf.Infinity;
 
         foreach (Collider2D coll in colliderList)
         {
+            //Checks if collision is with an enemy and finds the one closest to Earth
             if (coll.GetComponent<EnemyAttributes>() && highestDistanceTravelled < coll.gameObject.GetComponent<EnemyAttributes>().m_fDistanceTravelled)
             {
                 highestDistanceTravelled = coll.gameObject.GetComponent<EnemyAttributes>().m_fDistanceTravelled;
@@ -55,13 +71,12 @@ public class TowerCollision : MonoBehaviour
         return temp;
     }
 
-
+    //Rotates the tower to face the targeted enemy
     void RotateTower(GameObject targetEnemy)
     {
         
         if (targetEnemy.GetComponent<EnemyAttributes>())
         {
-            //m_parent.GetComponent<TowerAttributes>().m_vDirection = MathHelper.CalculateDirection(m_parent.transform.eulerAngles.z);
             Vector2 m_vDesiredDirection = new Vector2(targetEnemy.transform.position.x - m_parent.transform.position.x, targetEnemy.transform.position.y - m_parent.transform.position.y);
             m_vDesiredDirection = m_vDesiredDirection.normalized;
             float desiredRotation = MathHelper.CalculateAngle(m_parent.GetComponent<TowerAttributes>().m_vDirection, m_vDesiredDirection) + m_parent.transform.eulerAngles.z;
@@ -72,6 +87,7 @@ public class TowerCollision : MonoBehaviour
         else
             m_bWithinRange = false;
     }
+    //If a target is within range uses the firing rate to shoot at enemy
     void ShootBullet()
     {
         if (m_parent.GetComponent<TowerAttributes>().m_bIsActive && m_bWithinRange)
@@ -82,6 +98,8 @@ public class TowerCollision : MonoBehaviour
             {
                 m_fFiringCounter = 0.0f;
                 SoundEffectManager.PlaySoundEffect("FireBullet");
+
+                //Blue tower fires in a 5 bullet spread pattern
                 if (m_parent.GetComponent<TowerAttributes>().m_bulletType == BulletType.BLUE_BULLET)
                 {
                     float maxSpread = 20.0f;

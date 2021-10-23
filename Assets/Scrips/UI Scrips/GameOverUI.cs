@@ -40,6 +40,9 @@ public class GameOverUI : MonoBehaviour
     [SerializeField]
     public TextMeshProUGUI m_finalScoreText;
 
+    [SerializeField]
+    public TextMeshProUGUI m_gameResultsText;
+
     private void Start()
     {
         //Plays background music
@@ -70,6 +73,15 @@ public class GameOverUI : MonoBehaviour
         m_scoreText.text = m_score.ToString();
         m_healthScoreText.text = m_healthScore.ToString();
         m_finalScoreText.text = m_finalScore.ToString();
+
+        if (m_fRemainingHealh > 0)
+        {
+            m_gameResultsText.text = "GAME WON!";
+        }
+        else
+        {
+            m_gameResultsText.text = "GAME LOST";
+        }
     }
     //Button called when pause menu restart button is pressed
     public void OnRestartPressed()

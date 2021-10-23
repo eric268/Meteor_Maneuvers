@@ -100,7 +100,7 @@ MonoBehaviour:
   m_fBulletSpeed: 7
   m_totalDistanceTravelled: 0
   m_range: 0
-  m_fBulletDamage: 2
+  m_fBulletDamage: 1.5
   m_fDirection: {x: 0, y: 0, z: 0}
   m_bulletType: 2
   m_fBulletLifeTimeCounter: 0

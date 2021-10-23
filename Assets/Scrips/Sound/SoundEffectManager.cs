@@ -51,11 +51,11 @@ public class SoundEffectManager : MonoBehaviour
         }
         else if (name == towerFireBullet.name)
         {
-            m_audioSource.PlayOneShot(towerFireBullet, 0.1f);
+            m_audioSource.PlayOneShot(towerFireBullet, 0.05f);
         }
         else if (name == characterExplosion.name)
         {
-            m_audioSource.PlayOneShot(characterExplosion, 0.05f);
+            m_audioSource.PlayOneShot(characterExplosion, 0.03f);
         }
         else if (name == buttonPressed.name)
         {

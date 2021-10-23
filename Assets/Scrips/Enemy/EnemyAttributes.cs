@@ -70,12 +70,18 @@ public class EnemyAttributes : MonoBehaviour
             //Moves enemy
             transform.position += (m_vDirection * m_fMovementSpeed)*Time.deltaTime;
 
-            //Gets total distance travelled which is used for tower targeting.
+            //Gets total distance traveled which is used for tower targeting.
             m_fDistanceTravelled += m_fMovementSpeed * Time.deltaTime;
             //Rotation enemy should have based upon direction
             m_fWantedRotation = Quaternion.Euler(new Vector3(0f, 0f, m_fAngle));
             //Rotates enemy
             transform.rotation = Quaternion.Slerp(transform.rotation, m_fWantedRotation, m_fRotationSpeed);
+
+            //This acts as a safety net that if a enemy travels far enough off the screen they are destroyed
+            if (m_fDistanceTravelled > 65.0f)
+            {
+                EnemyManager.Instance().ReturnEnemy(this, m_enemyType);
+            }
         }
         else
         {

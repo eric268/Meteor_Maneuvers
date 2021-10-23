@@ -80,7 +80,7 @@ public class EnemyAttributes : MonoBehaviour
             //This acts as a safety net that if a enemy travels far enough off the screen they are destroyed
             if (m_fDistanceTravelled > 65.0f)
             {
-                EnemyManager.Instance().ReturnEnemy(this, m_enemyType);
+                EnemyManager.Instance().ReturnEnemy(gameObject, m_enemyType);
             }
         }
         else

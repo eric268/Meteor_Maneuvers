@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ffc541bfcdf11c4192fc7c4313163e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fMovementSpeed: 2.1
+  m_fMovementSpeed: 2
   m_fRotationSpeed: 0.15
   m_fDamageOnHit: 7
   m_fDeathAnimTime: 0.75
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_fWantedRotation: {x: 0, y: 0, z: 0, w: 0}
   m_fCashWhenDestroyed: 10
   m_fAngle: 0
-  m_fStartingHealth: 10
+  m_fStartingHealth: 4
   m_fCurrentHealth: 10
   m_bIsAlive: 1
   m_enemyType: 0

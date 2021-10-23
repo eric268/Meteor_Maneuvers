@@ -42,13 +42,27 @@ public class EnemySpawner : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    { 
+        m_earth = FindObjectOfType<EarthAttributes>().gameObject;
+        m_fStartLevel = false;
+        m_fNumActiveEnemeis = 0.0f;
         m_fGreenEnemySpawnCounter = 0.0f;
         m_fOrangeEnemySpawnCounter = 0.0f;
         m_fPurpleEnemySpawnCounter = 0.0f;
+        m_fNumGreenEnemiesToSpawn = 35.0f;
+        m_fNumOrangeEnemiesToSpawn = 12.0f;
+        m_fNumPurpleEnemiesToSpawn = 1.0f;
+    }
+    private void Awake()
+    {
         m_fStartLevel = false;
         m_fNumActiveEnemeis = 0.0f;
-        m_earth = FindObjectOfType<EarthAttributes>().gameObject;
+        m_fGreenEnemySpawnCounter = 0.0f;
+        m_fOrangeEnemySpawnCounter = 0.0f;
+        m_fPurpleEnemySpawnCounter = 0.0f;
+        m_fNumGreenEnemiesToSpawn = 35.0f;
+        m_fNumOrangeEnemiesToSpawn = 12.0f;
+        m_fNumPurpleEnemiesToSpawn = 1.0f;
     }
 
     // Update is called once per frame

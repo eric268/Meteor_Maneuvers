@@ -43,7 +43,7 @@ public class SoundEffectManager : MonoBehaviour
         }
         else if (name == bulletHit.name)
         {
-            m_audioSource.PlayOneShot(bulletHit, 0.25f);
+            m_audioSource.PlayOneShot(bulletHit, 0.04f);
         }
         else if (name == goldNuggetCollected.name)
         {

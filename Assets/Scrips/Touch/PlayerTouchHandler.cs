@@ -201,7 +201,7 @@ public class PlayerTouchHandler : MonoBehaviour
     {
         foreach(GameObject tower in m_listOfTowersPlaced)
         {
-            if (tower.GetComponent<Collider2D>().OverlapPoint(startTouchPos))
+            if (tower && tower.GetComponent<Collider2D>().OverlapPoint(startTouchPos))
             {
                 m_currentSelectedGameObject = tower;
                 Debug.Log(m_currentSelectedGameObject.transform.GetChild(1).name);
